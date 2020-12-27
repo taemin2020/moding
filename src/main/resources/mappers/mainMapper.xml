@@ -1,0 +1,191 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"  "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+ 
+
+<mapper namespace="wawo.prototype.moding.dao.MainDAO"><!--namespace를 통해 MainDAO와 연결합니다. -->
+<parameterMap type="java.util.Map" id="param"></parameterMap>
+
+  <select id="selectUsers" parameterType="wawo.prototype.moding.dto.MainDTO" resultType="wawo.prototype.moding.dto.MainDTO"><!-- selectUsers()메서드를 호출하면 실행할 SELECT문이며, 
+						MainDTO 객체를 파라미터로 받아, MainDTO객체를 반환합니다.-->
+  	SELECT SEQ
+         , NAME
+	     , IP
+    FROM PROTOTYPE
+
+  </select>
+
+  <!-- 마지막 guestId 얻기-->  
+  <select id="getGuestId" resultType="int">
+  	SELECT MAX(GUEST_ID)
+    FROM GUEST_INFO
+
+  </select>
+  
+  <!-- 마지막 guestId 얻기-->  
+  <select id="checkHost" resultType="int" parameterType="java.util.HashMap">
+  		SELECT COUNT(*)
+		
+	    FROM WEDDING_INFO
+	    WHERE STATUS = 'Y'
+	    AND GROOM_NM = #{groom}    
+	    AND BRIDE_NM = #{bride}
+
+  </select>
+  
+  <select id="getWeddingInfo" parameterType="java.util.HashMap" resultType="java.util.HashMap">
+	  SELECT WEDDING_ID weddingId
+	       , LOCATION location
+		   , WEDDING_DTM weddingDtm
+		   , PAY_YN payYn
+		   , CREATE_DTM createDtm
+		   , UPDATE_DTM updateDtm
+		   , STATUS status
+		   , GROOM_NM groomNm
+ 		  , BRIDE_NM brideNm
+		
+	    FROM WEDDING_INFO
+	    WHERE STATUS = 'Y'
+	    AND GROOM_NM = #{groom}    
+	    AND BRIDE_NM = #{bride}
+  
+  
+  </select>
+  
+   <insert id="insertFiles" parameterType="java.util.HashMap">
+    
+        INSERT INTO GUEST_ATTACH_INFO (
+              GUEST_ID
+            , ATTACH_NM
+            , TYPE
+            , SIZE
+            , CREATE_DTM
+            , UPDATE_DTM
+            , STATUS                     
+        )
+        VALUES
+        (
+              #{guestId}
+            , #{attachNm}
+            , #{type}
+            , #{size}
+            , sysdate()
+            , sysdate()
+            , 'Y'   
+        )
+        
+    </insert>
+    
+    
+  
+  <select id="getGroomInfo"  parameterType="java.util.HashMap" resultType="java.util.HashMap"><!-- selectUsers()메서드를 호출하면 실행할 SELECT문이며, 
+						MainDTO 객체를 파라미터로 받아, MainDTO객체를 반환합니다.-->
+  	 SELECT h.HOST_ID hostId
+    	  , h.WEDDING_ID weddingId
+		  , h.HOST_NM hostNm
+		  , h.HOST_TYPE hostType
+		  , h.FATHER_NM fatherNm
+		  , h.MOTHER_NM motherNm
+		  , h.ORDER_NM orderNm
+		  , h.PROFILE_ATT profileAtt
+		  , h.CREATE_DTM createDtm
+		  , h.UPDATE_DTM updateDtm
+		  , h.STATUS status
+		  , h.ACCOUNT account
+		  , h.BANK bank
+		  , a.ATTACH_NM attachNm
+
+    FROM host_info h INNER JOIN wedding_attach_info a 
+   								ON h.WEDDING_ID = a.WEDDING_ID 
+   								and h.PROFILE_ATT = a.ATTACH_ID
+    WHERE h.STATUS = 'Y'
+    AND h.HOST_TYPE = 'M'
+    AND h.WEDDING_ID = #{weddingId}
+
+  </select>
+  
+  <select id="getBrideInfo"  parameterType="java.util.HashMap" resultType="java.util.HashMap"><!-- selectUsers()메서드를 호출하면 실행할 SELECT문이며, 
+						MainDTO 객체를 파라미터로 받아, MainDTO객체를 반환합니다.-->
+  	 SELECT h.HOST_ID hostId
+    	  , h.WEDDING_ID weddingId
+		  , h.HOST_NM hostNm
+		  , h.HOST_TYPE hostType
+		  , h.FATHER_NM fatherNm
+		  , h.MOTHER_NM motherNm
+		  , h.ORDER_NM orderNm
+		  , h.PROFILE_ATT profileAtt
+		  , h.ACCOUNT account
+		  , h.BANK bank
+		  , h.CREATE_DTM createDtm
+		  , h.UPDATE_DTM updateDtm
+		  , h.STATUS status
+		  , a.ATTACH_NM attachNm
+
+    FROM host_info h INNER JOIN wedding_attach_info a 
+   								ON h.WEDDING_ID = a.WEDDING_ID 
+   								and h.PROFILE_ATT = a.ATTACH_ID
+    WHERE h.STATUS = 'Y'
+    AND h.HOST_TYPE = 'W'
+    AND h.WEDDING_ID = #{weddingId}
+    
+
+  </select>
+  
+  <select id="getSlidePic" parameterType="java.util.HashMap" resultType="wawo.prototype.moding.dto.WeddingAttDTO" >
+			
+  	 SELECT ATTACH_ID attachId
+    	  , WEDDING_ID weddingId
+		  , ATTACH_NM attachNm
+		  , TYPE 
+		  , SIZE
+		  , CREATE_DTM createDtm
+		  , UPDATE_DTM updateDtm
+		  , STATUS 
+
+    FROM WEDDING_ATTACH_INFO
+    WHERE STATUS = 'Y'
+    AND TYPE = 'slide'
+    AND WEDDING_ID = #{weddingId}
+    
+
+  </select>
+  
+  <insert id="insertGuestInfo"  parameterMap="param"><!-- selectUsers()메서드를 호출하면 실행할 SELECT문이며, 
+						MainDTO 객체를 파라미터로 받아, MainDTO객체를 반환합니다.-->
+  	 INSERT INTO GUEST_INFO (
+  	 		HOST_ID
+  	 	  , GUEST_NM
+  	 	  , RELATION_NM
+  	 	  , DETAIL_RELATION
+  	 	  , PHONE
+  	 	  , PRIVACY_YN
+  	 	  , BOARD
+  	 	  , PAY_YN
+  	 	  , CREATE_DTM
+  	 	  , UPDATE_DTM
+  	 	  , STATUS
+  	 
+  	 )
+  	 VALUES(
+	        '1'
+	      , #{name}
+	      , #{relation}
+	      , #{deRelation}
+	      , #{phone}
+	      , #{terms}
+	      , #{content}
+	      , 'Y'
+	      , sysdate()
+	      , sysdate()
+	      , 'Y'  	 
+  	 
+  	 
+  	 )
+  	 
+  	 
+  	 
+  	 
+  </insert>
+
+
+</mapper>
+

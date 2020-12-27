@@ -1,0 +1,115 @@
+#n1_1109 {
+	width: 100%;
+	height: 100%;
+	overflow: hidden;
+	background: rgb(238, 238, 238);
+}
+
+/* image 5 */
+#n1_1115 {
+	background-image:
+		url("https://s3-alpha-sig.figma.com/img/a8f1/a85f/1d18890a125f710fd1271add801b16e5?Expires=1607299200&Signature=E6xeTbl6yK4f3kZF1Ug3WrUTHrfYnuGmDV7wFe-O0gibw9xob2YjtAjzK7wkxTFg--dE5tOZPStFvYdu-9rrvhqxhTDIx49Lrqpkb9KkWGoJeEWjtoYK7ZoAEsVCGitnFVHHM8ConRJHdS1mRzHdz7Hce1oNiRhHrmjFjd8RnksruZNL2cpmtNMK8EYVWvBZbZM86MA4D0kbuxIwcE4EG6ePrDOI-wdaUVsRzMkRJ1wojBd9ak~d2SXjeFTStnErxfwKTvd4ObX7hd-n1eQ-h404lpv8BVr1860nVbCyIpsNkwrIXTn7xEE4WK6c47x5Ot87uXwJgdyUzS513RWE0Q__&Key-Pair-Id=APKAINTVSUGEWH5XD5UA");
+	background-size: cover;
+	background-repeat: no-repeat;
+	background-position: center center;
+	left: 87px;
+	width: 201px;
+	top: 337px;
+	height: 36px;
+}
+
+/* Your mobile wedding messenger */
+#n1_1116 {
+	font-family: Roboto;
+	font-size: 18px;
+	font-weight: 400;
+	letter-spacing: 0px;
+	color: rgb(0, 0, 0);
+	vertical-align: middle;
+	text-align: center;
+	justify-content: center;
+	width: 264px;
+	align-items: center;
+	line-height: 21.0938px;
+	height: 21px;
+	left: 55px;
+	top: 397px;
+}
+
+/* Ellipse 1 */
+#n1_1117 {
+	width: 30px;
+	height: 30px;
+	left: 172px;
+	top: 442px;
+}
+
+/* Rectangle 17 */
+#n1_1118 {
+	background: rgb(238, 238, 238);
+	left: 188px;
+	width: 14px;
+	top: 459px;
+	height: 15px;
+}
+
+.hr-sect {
+	display: flex;  
+	flex-basis: 100%;
+	align-items: center;
+	color: #FFA902;
+	font-size: 18px;
+	margin: 0px 5px;
+	font-family: 'Niconne', cursive;
+	
+}
+.hr-sect::before,
+.hr-sect::after {
+	content: "";
+	flex-grow: 1;
+	background: black;
+	height: 1px;
+	font-size: 0px;
+	line-height: 0px;
+	margin: 0px 13px;
+}
+@font-face {
+	font-family:'MapoGoldenPier';
+	src: url(../font/MapoGoldenPier.ttf), format('embedded-opemtype');	
+}
+
+@font-face {
+	font-family:'NanumGothic';
+	src: url(../font/NanumGothic-Regular.ttf), format('embedded-opemtype');	
+}
+
+@font-face {
+	font-family:'Playfair Display';
+	src: url(../font/PlayfairDisplay-Medium.ttf), format('embedded-opemtype');	
+}
+
+@font-face {
+	font-family:'GimpoBatang';
+	src: url(../font/Batang.ttf), format('embedded-opemtype');		
+}
+@font-face {
+	font-family:'Gimpotitle';
+	src: url(../font/title.ttf), format('embedded-opemtype');	
+}
+@font-face {
+	font-family:'BatangB';
+	src: url(../font/KoPubWorldBatangBold.ttf), format('embedded-opemtype');		
+}
+@font-face {
+	font-family:'BatangM';
+	src: url(../font/KoPubWorldBatangMedium.ttf), format('embedded-opemtype');		
+}
+@font-face {
+	font-family:'DotumB';
+	src: url(../font/KoPubWorldDotumBold.ttf), format('embedded-opemtype');		
+}
+@font-face {
+	font-family:'DotumM';
+	src: url(../font/KoPubWorldDotumMedium.ttf), format('embedded-opemtype');	
+}
+
