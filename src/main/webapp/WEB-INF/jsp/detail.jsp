@@ -45,26 +45,32 @@
 	<div id="progressbar"></div>
 	<div class="container-fluid full-height">
 		<div class="row row-height">		
-			<div class="col-lg-6 content-right" id="start">
+			<div class="col-lg-6 content-right" id="start" style="padding: 30px 38px;">
 				<div id="wizard_container">
 					<div id="top-wizard">							
 						</div>
 						<!-- /top-wizard -->
 						<form id="wrapped">
-							<input id="website" name="website" type="text" value="">
-							<!-- Leave for security protection, read docs for details -->
+						<input id="website" name="website" type="text" value="">
+							<a id="backward" class="backward" name="backward">
+							<img src="img/backward.jpg" style="width: 25px;margin-top: 4px;">
+							</a>
 							<div id="middle-wizard">
-								<div class="step">
-									<h3 class="main_question"><strong>1/5</strong>누구를 축하 해주러 오셨나요?</h3>
-									<section id="about" style="paddding: 1rem 0rem;">
+								<div class="step" style="height:450px;">
+									<h3 class="main_question" style="color: rgb(35, 35, 60); line-height: 27px; letter-spacing: 0em; font-family: Tmoney RoundWind; font-size: 21px; font-style: normal; font-weight: 800;">
+									<strong style="font-family: NanumGothic;font-size: 15px; color: #2A292A;font-weight: normal;font-style: normal;padding-top: 40px;padding-bottom:18px;">
+									#1 우리 결혼해요!
+									</strong>
+									누구를 축하해주러 오셨나요?</h3>
+									<section id="about">
 									<div class="container text-center">
 										<div class="row">
-											<div class="col-lg-10 mx-auto">							
+											<div class="col-lg-10 mx-auto" style="padding: 0px;">							
 												<div id="selectGroom" class="image" value="N" onclick="selectHost('groom');" style="opacity:0.4;">
-													<img src="img/${groomInfo.attachNm }" alt="groom" style="border-radius: 20px; float:left; width:45%; height:auto;">
+													<img src="img/${groomInfo.attachNm }" alt="groom" style="border-radius: 5px; float:left; width:45%; height:auto;">
 												</div>
 												<div id="selectBride" class="image" value="N" onclick="selectHost('bride');" style="opacity:0.4;">
-												    <img src="img/${brideInfo.attachNm }" alt="bride" style="border-radius: 20px; float:right; width:45%; height:auto;">
+												    <img src="img/${brideInfo.attachNm }" alt="bride" style="border-radius: 5px; float:right; width:45%; height:auto;">
 												</div>
 											</div>
 											<span style="margin-top: 10px;width: 45%;text-align: center;padding-left: 15px;">
@@ -78,8 +84,12 @@
 								</section>
 								</div>
 								<!-- /step-->
-								<div class="step">
-									<h3 class="main_question"><strong>2/5</strong>정신없는 결혼식<br>발자국을 남겨주세요.</h3>
+								<div class="step" style="height:450px;">
+									<h3 class="main_question" style="color: rgb(35, 35, 60); line-height: 27px; letter-spacing: 0em; font-family: Tmoney RoundWind; font-size: 21px; font-style: normal; font-weight: 800;">
+									<strong style="font-family: NanumGothic;font-size: 15px; color: #2A292A;font-weight: normal;font-style: normal;padding-top: 40px;padding-bottom: 18px;">
+									#2 잠시 펜은 넣어두세요
+									</strong>
+									정신없는 결혼식 발자국을<br>꼭 남겨주세요.</h3>
 									<div class="form-group">
 										<input type="text" id="name" name="name" class="form-control required" placeholder="이름">
 									</div>
@@ -96,8 +106,12 @@
 									</div>
 								</div>
 								<!-- /step-->
-								<div class="step">
-									<h3 class="main_question"><strong>3/5</strong>신랑/신부와의 관계를 선택 해주세요.</h3>
+								<div class="step"style="height:450px;">
+									<h3 class="main_question" style="color: rgb(35, 35, 60); line-height: 27px; letter-spacing: 0em; font-family: Tmoney RoundWind; font-size: 21px; font-style: normal; font-weight: 800;">
+									<strong style="font-family: NanumGothic;font-size: 15px; color: #2A292A;font-weight: normal;font-style: normal;padding-top: 40px;padding-bottom: 18px;">
+									#3 말하자면은 그렇고 그런 사이니깐
+									</strong>
+									주인공과 나?<br>우리 이런사이에요.</h3>
 									<select id = "relation" class="selectpicker" style="width: 100%; height: 36px;border-radius: 10px;font-family: 'Work Sans'; text-indent: 10px;">
   								      <option value="">관계를 선택 해주세요.</option>
 									  <option value="family">가족</option>
@@ -143,8 +157,12 @@
 								   </div>	
 								</div>
 								<!-- /step-->
-								<div class="step">
-									<h3 class="main_question"><strong>4/5</strong>축하사진을 업로드 해주세요. 신랑 신부에게 특별한 선물로 제작됩니다.</h3>
+								<div class="step" style="height:450px;">
+									<h3 class="main_question" style="color: rgb(35, 35, 60); line-height: 27px; letter-spacing: 0em; font-family: Tmoney RoundWind; font-size: 21px; font-style: normal; font-weight: 800;">
+									<strong style="font-family: NanumGothic;font-size: 15px; color: #2A292A;font-weight: normal;font-style: normal;padding-top: 40px;padding-bottom: 18px;">
+									#4 결혼식의 진정한 꽃은 하객입니다.
+									</strong>
+									여러분의 멋진 프로필 사진을<br>올려주세요. 신랑신부에게</br>특별한 선물로 제작됩니다.</h3>
 									<fieldset class="form-group">
 								        <a href="javascript:void(0)" onclick="$('#pro-image').click()">Upload Image</a>
 								        <input type="file" id="pro-image" name="pro-image" style="display: none;" class="form-control" multiple/>
@@ -159,8 +177,12 @@
 								    <!--  <input type="button" value="submit" id="btn_upload"/> -->
 								</div>
 								<!-- /step-->
-								<div class="submit step">
-									<h3 class="main_question"><strong>5/5</strong>이름만 쓰는 방명록은 이제 그만! 신랑 신부만을 위한 센스있는 축하메세지를 남겨주세요.</h3>
+								<div class="submit step" style="height:450px;">
+									<h3 class="main_question" style="color: rgb(35, 35, 60); line-height: 27px; letter-spacing: 0em; font-family: Tmoney RoundWind; font-size: 18px; font-style: normal; font-weight: 800;">
+									<strong style="font-family: NanumGothic;font-size: 15px; color: #2A292A;font-weight: normal;font-style: normal;padding-top: 40px;padding-bottom: 18px;">
+									#5 진심이 담긴 '찐'축하 캠페인
+									</strong>
+									이름만 쓰는 방명록은 이제 그만!</br>신랑 신부만을 위한</br> 센스있는 축하메세지를 남겨주세요.</h3>
 									<div class="summary">
 									<textarea id="content" name="content" clos="40" rows="8" style="width: 100%; height: 200px;"></textarea>
 									<!-- <input type="text" style="width:100%; height:200px; text-align:right;"> -->
@@ -169,10 +191,13 @@
 								<!-- /step-->
 							</div>
 							<!-- /middle-wizard -->
-							<div id="bottom-wizard">
-								<button type="button" name="backward" class="backward">이전 </button>
-								<button type="button" name="forward" class="forward">다음</button>
-								<button type="button" name="submit" class="submit" data-toggle="modal" data-target="#payModal"">축의금 보내기</button>
+							<div id="bottom-wizard" style="text-align:center;">
+								<!-- <button type="button" name="backward" class="backward">이전 </button> -->
+								<button type="button" name="forward" class="forward" style="background: rgb(42, 41, 42); border-radius: 25px; width: 189px; box-shadow: 0px 4px 25px rgba(0,0,0,0.1);">
+								다음
+								</button>
+								<button type="button" name="submit" class="submit" data-toggle="modal" data-target="#payModal"" style="background: rgb(42, 41, 42); border-radius: 25px; width: 189px; box-shadow: 0px 4px 25px rgba(0,0,0,0.1); margin-top: -25px; position: absolute;">축의금 보내기</button>
+								<button type="button" name="result" class="submit" onclick="result();"style="background:linear-gradient(12.04deg, #DFDDF5 0%, #EBF4FC 100%); border-radius: 25px; width: 189px; box-shadow: 0px 4px 25px rgba(0,0,0,0.1); color:black;margin-top:15px; ">방명록만 보내기</button>
 							</div>
 							<!-- /bottom-wizard -->
 						</form>
@@ -458,9 +483,7 @@
 	
 	
  	function kakaoPay(){
-
-	
-		    Kakao.Link.sendDefault({
+       Kakao.Link.sendDefault({
 		      objectType: 'text',
 		      text:
 		    	  ${groomInfo.account },
@@ -471,6 +494,8 @@
 		          'https://wawo.netlify.app/',
 		      },
 		    })
+
+		    result();
 		} 
 	
 	function result(){
@@ -657,7 +682,7 @@
 	}
 	
 	.container {
-	    padding-top: 50px;
+	    padding-top: 0px;
 	}
 
 	

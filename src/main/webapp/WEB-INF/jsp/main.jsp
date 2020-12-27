@@ -47,7 +47,7 @@
 	<div id="wrapper">
 		<div style="margin-left: 86%;">
 			<a id="kakao-link-btn" onclick="sendLink();">
-			<img src="img/link.jpg" style="width: 25px; margin-left: 87%; margin-top: 4px;">
+			<img src="img/link.jpg" style="width: 25px; margin-left: 20%; margin-top: 4px;">
 			</a>
 		</div>
 		<section class="content-section" id="portfolio"	style="padding: 0rem 0rem;">

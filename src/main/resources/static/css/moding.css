@@ -84,6 +84,11 @@
 }
 
 @font-face {
+	font-family:'Tmoney RoundWind';
+	src: url(../font/TmoneyRoundWindRegular.ttf), format('embedded-opemtype');	
+}
+
+@font-face {
 	font-family:'Playfair Display';
 	src: url(../font/PlayfairDisplay-Medium.ttf), format('embedded-opemtype');	
 }
