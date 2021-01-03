@@ -21,9 +21,10 @@ import wawo.prototype.moding.dao.MainDAO;
 @Service
 @Slf4j
 public class MainService {
-    
-    private String uploadPath = "C:\\upload\\";
-    @Autowired
+	private String uploadPath = "/modingFile/";
+	/*
+	 * private String uploadPath = "C:\\upload\\";
+	 */@Autowired
 	private MainDAO mainDAO;//MainDAO bean을 자동으로 주입
     
     
@@ -80,9 +81,9 @@ public class MainService {
 		return mainDAO.getBrideInfo(param);
 	}
 
-	public List<Map<String, Object>> getSlidePic(Object object) {
+	public List<Map<String, Object>> getSlidePic(String weddingId) {
 		// TODO Auto-generated method stub
-		return mainDAO.getSlidePic(object);
+		return mainDAO.getSlidePic(weddingId);
 	}
 
 	public int insertGuestInfo(Map<String, Object> param) {
@@ -105,6 +106,18 @@ public class MainService {
 			return false;
 		}
 	}
+
+	public Map<String, Object> getAccountInfo(Map<String, Object> param) {
+		// TODO Auto-generated method stub
+		if(param.get("selectGroom").equals("Y")) {
+			return mainDAO.getGroomAccountInfo(param);
+		}else {
+			return mainDAO.getBrideAccountInfo(param);
+		}
+		
+		
+	}
+
    
     
     

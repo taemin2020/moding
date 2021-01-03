@@ -19,13 +19,16 @@ public interface MainDAO {
 	
 	Map<String, Object> getBrideInfo(Map<String, Object> param);
 
-	List<Map<String, Object>> getSlidePic(Object object);
+	List<Map<String, Object>> getSlidePic(String weddingId);
 
 	void insertGuestInfo(Map<String, Object> param);
 
 	int getGuestId();
 
 	int checkHost(Map<String, Object> param);
+
+	Map<String, Object> getGroomAccountInfo(Map<String, Object> param);
+	Map<String, Object> getBrideAccountInfo(Map<String, Object> param);
 	
 	
 }

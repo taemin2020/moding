@@ -75,46 +75,46 @@
 }
 @font-face {
 	font-family:'MapoGoldenPier';
-	src: url(../font/MapoGoldenPier.ttf), format('embedded-opemtype');	
+	src: url(../font/MapoGoldenPier.ttf), format('embedded-opentype');	
 }
 
 @font-face {
 	font-family:'NanumGothic';
-	src: url(../font/NanumGothic-Regular.ttf), format('embedded-opemtype');	
+	src: url(../font/NanumGothic-Regular.ttf), format('embedded-opentype');	
 }
 
 @font-face {
 	font-family:'Tmoney RoundWind';
-	src: url(../font/TmoneyRoundWindRegular.ttf), format('embedded-opemtype');	
+	src: url(../font/TmoneyRoundWindRegular.ttf), format('embedded-opentype');	
 }
 
 @font-face {
 	font-family:'Playfair Display';
-	src: url(../font/PlayfairDisplay-Medium.ttf), format('embedded-opemtype');	
+	src: url(../font/PlayfairDisplay-Medium.ttf), format('embedded-opentype');	
 }
 
 @font-face {
 	font-family:'GimpoBatang';
-	src: url(../font/Batang.ttf), format('embedded-opemtype');		
+	src: url(../font/Batang.ttf), format('embedded-opentype');		
 }
 @font-face {
 	font-family:'Gimpotitle';
-	src: url(../font/title.ttf), format('embedded-opemtype');	
+	src: url(../font/title.ttf), format('embedded-opentype');	
 }
 @font-face {
 	font-family:'BatangB';
-	src: url(../font/KoPubWorldBatangBold.ttf), format('embedded-opemtype');		
+	src: url(../font/KoPubWorldBatangBold.ttf), format('embedded-opentype');		
 }
 @font-face {
 	font-family:'BatangM';
-	src: url(../font/KoPubWorldBatangMedium.ttf), format('embedded-opemtype');		
+	src: url(../font/KoPubWorldBatangMedium.ttf), format('embedded-opentype');		
 }
 @font-face {
 	font-family:'DotumB';
-	src: url(../font/KoPubWorldDotumBold.ttf), format('embedded-opemtype');		
+	src: url(../font/KoPubWorldDotumBold.ttf), format('embedded-opentype');		
 }
 @font-face {
 	font-family:'DotumM';
-	src: url(../font/KoPubWorldDotumMedium.ttf), format('embedded-opemtype');	
+	src: url(../font/KoPubWorldDotumMedium.ttf), format('embedded-opentype');	
 }
 

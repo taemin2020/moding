@@ -63,22 +63,20 @@ public class MainController {
 		
 		
 		Map<String, Object> weddingInfo = mainService.getWeddingInfo(param);   	
-	   	List<Map<String, Object>> slidePic = mainService.getSlidePic(weddingInfo.get("weddingId"));
 	   	
 	   	model.addAttribute("weddingInfo", weddingInfo);
-	   	model.addAttribute("slidePic", slidePic);
-	   	
-
 		return "index";
 	}
+	
+	
 	
 	@RequestMapping(value = "/goMain")
 	public String goMain(Model model, HttpServletRequest request, @RequestParam Map<String, Object> param) throws Exception {
 		
 		
 		Map<String, Object> weddingInfo = mainService.getWeddingInfo(param);   	
-	   	List<Map<String, Object>> slidePic = mainService.getSlidePic(weddingInfo.get("weddingId"));
-	   	
+		List<Map<String, Object>> slidePic = mainService.getSlidePic(String.valueOf(weddingInfo.get("weddingId")));
+	   		
 	   	model.addAttribute("weddingInfo", weddingInfo);
 	   	model.addAttribute("slidePic", slidePic);
 	   	
@@ -115,7 +113,8 @@ public class MainController {
 	   	
 	   	model.addAttribute("groomInfo", groomInfo);
 	   	model.addAttribute("brideInfo", brideInfo);
-		System.out.println(param);
+	   	model.addAttribute("kakaoId","'" + groomInfo.get("weddingId")+"'");
+		
 		return "detail";
 	}
 	
@@ -127,11 +126,11 @@ public class MainController {
     @ResponseBody
 	public Map<String,Object> submit(@RequestParam Map<String, Object> param) throws Exception {
 		
-		Map<String,Object> resultMap=new HashMap<String,Object>();
+	   	 Map<String,Object> resultMap=new HashMap<String,Object>();
          int a = mainService.insertGuestInfo(param);
-        
          resultMap.put("weddingId", param.get("weddingId"));
          resultMap.put("guestId", Integer.toString(a));
+         
 
         return resultMap;
     }
@@ -147,6 +146,9 @@ public class MainController {
         if(fileUpload) {
             resultMap.put("weddingId", param.get("weddingId"));
             resultMap.put("result", "success");
+            Map<String, Object> accountInfo = mainService.getAccountInfo(param);
+            String kakaoParam = "'" + accountInfo.get("account") +"/"+ param.get("weddingId") + "'"; 
+            resultMap.put("kakaoParam", kakaoParam);
         }else {
             resultMap.put("result", "fail");
         }
@@ -155,12 +157,32 @@ public class MainController {
         
     }
 	
+	/*
+	 * @RequestMapping("/responseKakao") public String responseKakao(Model model,
+	 * HttpServletRequest request, @RequestParam Map<String, Object> param) throws
+	 * Exception {
+	 * 
+	 * List<Map<String, Object>> slidePic = mainService.getSlidePic(param);
+	 * 
+	 * model.addAttribute("slidePic", slidePic); model.addAttribute("accessCode",
+	 * param.get("code")); return "result"; }
+	 */
 	
 	@RequestMapping("/result")
 	public String result(Model model, HttpServletRequest request, @RequestParam Map<String, Object> param) throws Exception { 
+		String kakaoParam = (String) param.get("state");
+		int idx = kakaoParam.indexOf("/");
+		String weddingId = kakaoParam.substring(idx + 1);
+		
+		List<Map<String, Object>> slidePic = mainService.getSlidePic(weddingId);
+	   	
+	   	model.addAttribute("slidePic", slidePic);
+	   	model.addAttribute("accessCode", "'" + param.get("code")+ "'");
+	   	model.addAttribute("accountInfo",kakaoParam.substring(0, idx) + "'");
 	   	
 	   	return "result";
 	}
+	
 	
 	
 	

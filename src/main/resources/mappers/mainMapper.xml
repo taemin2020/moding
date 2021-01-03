@@ -130,6 +130,41 @@
 
   </select>
   
+  <select id="getBrideAccountInfo"  parameterType="String" resultType="java.util.HashMap"><!-- selectUsers()메서드를 호출하면 실행할 SELECT문이며, 
+						MainDTO 객체를 파라미터로 받아, MainDTO객체를 반환합니다.-->
+  	 SELECT h.HOST_ID hostId
+    	  , h.WEDDING_ID weddingId
+		  , h.ACCOUNT account
+		  , h.BANK bank
+
+
+    FROM host_info h INNER JOIN wedding_attach_info a 
+   								ON h.WEDDING_ID = a.WEDDING_ID 
+   								and h.PROFILE_ATT = a.ATTACH_ID
+    WHERE h.STATUS = 'Y'
+    AND h.HOST_TYPE = 'W'
+    AND h.WEDDING_ID = #{weddingId}
+    
+
+  </select>
+  
+  <select id="getGroomAccountInfo"  parameterType="String" resultType="java.util.HashMap"><!-- selectUsers()메서드를 호출하면 실행할 SELECT문이며, 
+						MainDTO 객체를 파라미터로 받아, MainDTO객체를 반환합니다.-->
+  	 SELECT h.HOST_ID hostId
+    	  , h.WEDDING_ID weddingId
+		  , h.ACCOUNT account
+		  , h.BANK bank
+
+    FROM host_info h INNER JOIN wedding_attach_info a 
+   								ON h.WEDDING_ID = a.WEDDING_ID 
+   								and h.PROFILE_ATT = a.ATTACH_ID
+    WHERE h.STATUS = 'Y'
+    AND h.HOST_TYPE = 'M'
+    AND h.WEDDING_ID = #{weddingId}
+    
+
+  </select>
+  
   <select id="getSlidePic" parameterType="java.util.HashMap" resultType="wawo.prototype.moding.dto.WeddingAttDTO" >
 			
   	 SELECT ATTACH_ID attachId

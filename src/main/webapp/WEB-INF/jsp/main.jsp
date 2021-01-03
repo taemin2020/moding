@@ -135,28 +135,28 @@
 	    Kakao.Link.sendDefault({
 	      objectType: 'feed',
 	      content: {
-	        title: '딸기 치즈 케익',
-	        description: '#케익 #딸기 #삼평동 #카페 #분위기 #소개팅',
+	        title: 'Moding',
+	        description: '모딩을 결혼식에 참석하지 못한 지인들에게 공유하여 축하하는 마음을 나누세요.',
 	        imageUrl:
-	          'http://k.kakaocdn.net/dn/Q2iNx/btqgeRgV54P/VLdBs9cvyn8BJXB3o7N8UK/kakaolink40_original.png',
+	          'http://moding.io/img/logo.jpg',
 	        link: {
-	          mobileWebUrl: 'https://developers.kakao.com',
-	          webUrl: 'https://developers.kakao.com',
+	          mobileWebUrl: 'http://moding.io',
+	          webUrl: 'http://moding.io',
 	        },
 	      },
 	      buttons: [
 	        {
 	          title: '웹으로 보기',
 	          link: {
-	            mobileWebUrl: 'https://developers.kakao.com',
-	            webUrl: 'https://developers.kakao.com',
+	            mobileWebUrl: 'http://moding.io',
+	            webUrl: 'http://moding.io',
 	          },
 	        },
 	        {
 	          title: '앱으로 보기',
 	          link: {
-	            mobileWebUrl: 'https://developers.kakao.com',
-	            webUrl: 'https://developers.kakao.com',
+	            mobileWebUrl: 'http://moding.io',
+	            webUrl: 'http://moding.io',
 	          },
 	        },
 	      ],
