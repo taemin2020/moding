@@ -65,7 +65,7 @@
 									<section id="about">
 									<div class="container text-center">
 										<div class="row">
-											<div class="col-lg-10 mx-auto" style="padding: 0px;">							
+											<div class="col-lg-10 mx-auto required" style="padding: 0px;">							
 												<div id="selectGroom" class="image" value="N" onclick="selectHost('groom');" style="opacity:0.4;">
 													<img src="img/${groomInfo.attachNm }" alt="groom" style="border-radius: 5px; float:left; width:45%; height:auto;">
 												</div>
@@ -80,6 +80,7 @@
 											    신부 ${brideInfo.hostNm }
 											</span>
 										</div>
+										<div id="errorHost" style="font-size:15px; color:red; display:none;">방명록을 등록하실 대상을 선택 해주세요.</div>									
 									</div>
 								</section>
 								</div>
@@ -91,12 +92,13 @@
 									</strong>
 									정신없는 결혼식 발자국을<br>꼭 남겨주세요.</h3>
 									<div class="form-group">
-										<input type="text" id="name" name="name" class="form-control required" placeholder="이름">
+										<input type="text" id="name" name="name" class="form-control" placeholder="이름">
 									</div>
+									<div id="errorName" style="font-size:15px; color:red; display:none;">이름을 입력 해주세요.</div>
 									<div class="form-group">
-										<input type="text" id="phone" name="phone" onKeyup="inputPhoneNumber(this);" maxlength="13" class="form-control required" placeholder="010-1234-5678">
+										<input type="text" id="phone" name="phone" onKeyup="inputPhoneNumber(this);" maxlength="13" class="form-control" placeholder="010-1234-5678">
 									</div>
-									<div id="errorPhone" style="font-size:15px; color:red; display:none;">휴대폰번호  양식과 맞지 않습니다..</div>
+									<div id="errorPhone" style="font-size:15px; color:red; display:none;">휴대폰번호를 다시 확인 해주세요.</div>
 									
 									<!-- /row -->
 									<div class="form-group terms">
@@ -113,7 +115,7 @@
 									#3 말하자면은 그렇고 그런 사이니깐
 									</strong>
 									주인공과 나?<br>우리 이런사이에요.</h3>
-									<select id = "relation" class="selectpicker" style="width: 100%; height: 36px;border-radius: 10px;font-family: 'Work Sans'; text-indent: 10px;">
+									<select id = "relation" class="selectpicker" style="width: 100%; height: 36px;border-radius: 10px;font-family: 'Work Sans'; text-indent: 10px; font-weight : bold;">
   								      <option value="">관계를 선택 해주세요.</option>
 									  <option value="family">가족</option>
 									  <option value="friend">친구</option>
@@ -194,7 +196,7 @@
 							<!-- /middle-wizard -->
 							<div id="bottom-wizard" style="text-align:center;">
 								<!-- <button type="button" name="backward" class="backward">이전 </button> -->
-								<button type="button" name="forward" class="forward" style="background: rgb(42, 41, 42); border-radius: 25px; width: 189px; box-shadow: 0px 4px 25px rgba(0,0,0,0.1);">
+								<button type="button" class="forward" onclick = "checkVal();" style="background: rgb(42, 41, 42); border-radius: 25px; width: 189px; box-shadow: 0px 4px 25px rgba(0,0,0,0.1);">
 								다음
 								</button>
 								<button type="button" name="submit" class="submit" data-toggle="modal" data-target="#payModal"" style="background: rgb(42, 41, 42); border-radius: 25px; width: 189px; box-shadow: 0px 4px 25px rgba(0,0,0,0.1); margin-top: -25px; position: absolute;">축의금 보내기</button>
@@ -227,13 +229,30 @@
 		<div class="modal-dialog modal-dialog-centered">
 			<div class="modal-content">
 				<div class="modal-header">
-					<h4 class="modal-title" id="termsLabel">Terms and conditions</h4>
+					<h4 class="modal-title" id="termsLabel" style="font-size: 18px;font-weight: 900;">모딩 서비스 內 개인정보 활용 동의에 관한 문구</h4>
 					<button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
 				</div>
-				<div class="modal-body">
-					<p>Lorem ipsum dolor sit amet, in porro albucius qui, in <strong>nec quod novum accumsan</strong>, mei ludus tamquam dolores id. No sit debitis meliore postulant, per ex prompta alterum sanctus, pro ne quod dicunt sensibus.</p>
-					<p>Lorem ipsum dolor sit amet, in porro albucius qui, in nec quod novum accumsan, mei ludus tamquam dolores id. No sit debitis meliore postulant, per ex prompta alterum sanctus, pro ne quod dicunt sensibus. Lorem ipsum dolor sit amet, <strong>in porro albucius qui</strong>, in nec quod novum accumsan, mei ludus tamquam dolores id. No sit debitis meliore postulant, per ex prompta alterum sanctus, pro ne quod dicunt sensibus.</p>
-					<p>Lorem ipsum dolor sit amet, in porro albucius qui, in nec quod novum accumsan, mei ludus tamquam dolores id. No sit debitis meliore postulant, per ex prompta alterum sanctus, pro ne quod dicunt sensibus.</p>
+				<div class="modal-body" style="font-size: 11px;">
+					<p>모딩 서비스 내에서 본인의 개인정보를 수집·이용·제공하고자 하는 경우에는「개인정보 보호법」제15조 제1항 제1호, 제17조 제1항 제1호, 제24조 제1항 제1호에 따라 본인의 동의를 얻어야 합니다. 이에 본인은 아래의 내용과 같이 본인의 개인정보를 수집·이용·제공하는 것에 동의합니다.</p>
+
+					<p>1. 개인정보의 수집·이용에 관한 사항<br>
+					<strong>￭ 수집·이용 목적</strong><br>
+					‐ 귀하의 개인정보는 컨텐츠 제공, 컨텐츠 맞춤 서비스 제공, 서비스 관련 안내자료 발송등 아래를 포함한 목적으로 사용하고 있습니다.<br>
+					- 서비스의 이행 (계좌 정보 전송, 방명록 전송, 축의 명단 전송, 결혼식 사진 전송 등 결혼식 관련 서비스)<br>
+					- 서비스 상담 및 서비스 이용 권유 목적으로 이용됩니다.
+					</p>
+					
+					<p>
+					<strong>￭ 개인정보의 수집항목</strong><br>
+					‐ 성명, 연락처(휴대전화, 이메일), 카카오톡 ID, 생년월일, 성별, 혼주성명, 결혼예정일, 예식장소, 이메일, 결혼사진 등<br>
+					- 선택정보 : 일반전화, 문의사항 등<br>
+					<strong>￭ 보유 및 이용 기간</strong><br>
+					‐ 귀하의 개인정보는 제공에 관한 동의일로부터 5년까지 보유·이용됩니다.<br>
+					<strong>￭ 동의를 거부할 권리 및 동의를 거부할 경우의 불이익</strong><br>
+					‐ 위 개인정보의 수집·이용에 동의하지 않으실 경우 모딩 서비스 내에서 서비스를 진행할 수가 없으며, 모딩 서비스를 이용하는 호스트의 경우에는 모딩 서비스를 신청하실 수 없습니다.
+					</p>
+					
+					<p>위 사항에서 명기하지 않은 개인정보 처리 방침의 내용에 대해서는 모딩 홈페이지 https://wawo.netlify.app/ 에서 확인할 수 있음을 알려 드립니다.</p>
 				<div class="modal-footer">
 					<button type="button" class="btn_1" data-dismiss="modal">Close</button>
 				</div>
@@ -307,6 +326,53 @@
 	<script src="js/moding.min.js"></script>
 	
 	<script>
+	function checkVal(){
+		
+		// 호스트 선택 유효성검사
+		if(document.getElementsByClassName('step wizard-step current')[0].innerText.indexOf('#1') != "-1"){
+			if(document.getElementById("groom").value == "N" && document.getElementById("bride").value == "N"){
+				document.getElementById("errorHost").style.display = "block";
+				event.stopImmediatePropagation();
+			}else{
+				document.getElementById("errorHost").style.display = "none";
+			}
+		}
+		//
+		
+		// 이름, 휴대폰번호 유효성 검사
+		if(document.getElementsByClassName('step wizard-step current')[0].innerText.indexOf('#2') != "-1"){ 
+			if(document.getElementById("name").value == "" || document.getElementById("name").value == null){
+				document.getElementById("errorName").style.display = "block";
+				event.stopImmediatePropagation();	
+			}else{
+				document.getElementById("errorName").style.display = "none";
+			}
+			
+			var exp = /^(01[016789]{1}|02|0[3-9]{1}[0-9]{1})-?[0-9]{3,4}-?[0-9]{4}$/;
+			var EXP_BLANK = /^\s+|\s+$/g;		
+			var error = document.getElementById("errorPhone");
+			var phoneNum = document.getElementById("phone").value;
+			var isExpTest = true;
+			
+			var regExp =/(01[016789])-([1-9]{1}[0-9]{2,3})-([0-9]{4})$/; 
+			var myArray; 
+			if(regExp.test(phoneNum)){ 
+				error.style.display = "none"; 
+			}else { 
+				error.style.display = "block";
+				event.stopImmediatePropagation(); 
+			}
+	    }
+	    //
+	    
+	    // 관계 유효성 검사 추가
+	    
+		
+		
+	
+	};
+	
+	
 	// 핸드폰 번호 유효성검사 정규식
 	/* $("#phone").change(function(){
 		var exp = /^(01[016789]{1}|02|0[3-9]{1}[0-9]{1})-?[0-9]{3,4}-?[0-9]{4}$/;
@@ -699,6 +765,11 @@
 	
 	.container {
 	    padding-top: 0px;
+	}
+	
+	#deRelation {
+		background : white;
+		font-weight : bold;	
 	}
 
 	
