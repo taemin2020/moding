@@ -157,6 +157,23 @@ public class MainController {
         
     }
 	
+	@RequestMapping("/uploadShareFiles")
+	@ResponseBody
+    public Map<String,Object> uploadShareFiles(MultipartHttpServletRequest req, MultipartFile[] uploadFiles, @RequestParam Map<String, Object> param) throws IOException{
+    
+        Map<String,Object> resultMap=new HashMap<String,Object>();       
+        boolean fileUpload= mainService.uploadFile(uploadFiles, param);
+
+        if(fileUpload) {
+            resultMap.put("result", "success");
+        }else {
+            resultMap.put("result", "fail");
+        }
+        
+        return resultMap;
+        
+    }
+	
 	/*
 	 * @RequestMapping("/responseKakao") public String responseKakao(Model model,
 	 * HttpServletRequest request, @RequestParam Map<String, Object> param) throws
@@ -183,6 +200,24 @@ public class MainController {
 	   	return "result";
 	}
 	
+	
+	@RequestMapping(value = "/sharePic")
+	public String sharePic(Model model, HttpServletRequest request, @RequestParam Map<String, Object> param) throws Exception {
+		
+		model.addAttribute("weddingId", param.get("weddingId"));
+		model.addAttribute("guestId", param.get("guestId"));
+		
+		return "sharePic";
+	}
+	
+	@RequestMapping(value = "/goHall")
+	public String goHall(Model model, HttpServletRequest request, @RequestParam Map<String, Object> param) throws Exception {
+		
+		List<Map<String, Object>> sharePic = mainService.getSharePic(String.valueOf(param.get("weddingId")));  	
+		model.addAttribute("sharePic", sharePic);
+		
+		return "hall";
+	}
 	
 	
 	

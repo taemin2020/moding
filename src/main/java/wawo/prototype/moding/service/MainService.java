@@ -21,10 +21,13 @@ import wawo.prototype.moding.dao.MainDAO;
 @Service
 @Slf4j
 public class MainService {
-	private String uploadPath = "/modingFile/";
 	/*
-	 * private String uploadPath = "C:\\upload\\";
-	 */@Autowired
+	 * private String uploadPath = "/modingFile/";
+	 */
+	
+	private String uploadPath = "C:\\upload\\";
+	 
+	@Autowired
 	private MainDAO mainDAO;//MainDAO bean을 자동으로 주입
     
     
@@ -40,7 +43,7 @@ public class MainService {
                 File tmp=new File(uploadPath+fileName);
                 multipartFile.getResource();
                 fileMap.put("guestId", param.get("guestId"));
-                fileMap.put("attachNm", multipartFile.getOriginalFilename());
+                fileMap.put("attachNm", fileName);
                 fileMap.put("type", multipartFile.getContentType());
                 fileMap.put("size", multipartFile.getSize());
 
@@ -116,6 +119,11 @@ public class MainService {
 		}
 		
 		
+	}
+
+	public List<Map<String, Object>> getSharePic(String weddingId) {
+		// TODO Auto-generated method stub
+	return mainDAO.getSharePic(weddingId);
 	}
 
    

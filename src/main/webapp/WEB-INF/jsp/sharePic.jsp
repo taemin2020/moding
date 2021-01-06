@@ -37,10 +37,8 @@
 </head>
 
 <body style ="background: linear-gradient(12.04deg, #DFDDF5 0%, #EBF4FC 100%);">
-	<input type="hidden" id="groom" name="groom" value="N">
-	<input type="hidden" id="bride" name="bride" value="N">
-	<input type="hidden" id="detailRelation" name="detailRelation" value="">
-	<input type="hidden" id="account" name="account" value="">
+	<input type="hidden" id="guestId" name="guestId" value="${guestId }">
+	<input type="hidden" id="weddingId" name="weddingId" value="${weddingId }">
 	<!-- /menu -->
 	<div id="progressbar"></div>
 	<div class="container-fluid full-height">
@@ -50,155 +48,28 @@
 					<div id="top-wizard">							
 						</div>
 						<!-- /top-wizard -->
-						<form id="wrapped">
+						<form id="wrap  ped">
 						<input id="website" name="website" type="text" value="">
-							<a id="backward" class="backward" name="backward">
-							<img src="img/backward.jpg" style="width: 25px;margin-top: 4px;">
-							</a>
-							<div id="middle-wizard">
-								<div class="step" style="height:450px;">
+							<div id="middle-wizard">0     4
+								<div class="submit step" style="height:450px;">
 									<h3 class="main_question" style="color: rgb(35, 35, 60); line-height: 27px; letter-spacing: 0em; font-family: Tmoney RoundWind; font-size: 21px; font-style: normal; font-weight: 800;">
-									<strong style="font-family: NanumGothic;font-size: 15px; color: #2A292A;font-weight: normal;font-style: normal;padding-top: 40px;padding-bottom:18px;">
-									#1 우리 결혼해요!
-									</strong>
-									누구를 축하해주러 오셨나요?</h3>
-									<section id="about">
-									<div class="container text-center">
-										<div class="row">
-											<div class="col-lg-10 mx-auto" style="padding: 0px;">							
-												<div id="selectGroom" class="image" value="N" onclick="selectHost('groom');" style="opacity:0.4;">
-													<img src="img/${groomInfo.attachNm }" alt="groom" style="border-radius: 5px; float:left; width:45%; height:auto;">
-												</div>
-												<div id="selectBride" class="image" value="N" onclick="selectHost('bride');" style="opacity:0.4;">
-												    <img src="img/${brideInfo.attachNm }" alt="bride" style="border-radius: 5px; float:right; width:45%; height:auto;">
-												</div>
-											</div>
-											<span style="margin-top: 3px;width: 45%;text-align: left;">
-										    	신랑 ${groomInfo.hostNm }
-											</span>
-											<span style="width: 45%;margin-top: 3px;text-align: left;margin-left: 10%;">
-											    신부 ${brideInfo.hostNm }
-											</span>
-										</div>
-									</div>
-								</section>
-								</div>
-								<!-- /step-->
-								<div class="step" style="height:450px;">
-									<h3 class="main_question" style="color: rgb(35, 35, 60); line-height: 27px; letter-spacing: 0em; font-family: Tmoney RoundWind; font-size: 21px; font-style: normal; font-weight: 800;">
-									<strong style="font-family: NanumGothic;font-size: 15px; color: #2A292A;font-weight: normal;font-style: normal;padding-top: 40px;padding-bottom: 18px;">
-									#2 잠시 펜은 넣어두세요
-									</strong>
-									정신없는 결혼식 발자국을<br>꼭 남겨주세요.</h3>
-									<div class="form-group">
-										<input type="text" id="name" name="name" class="form-control required" placeholder="이름">
-									</div>
-									<div class="form-group">
-										<input type="text" id="phone" name="phone" onKeyup="inputPhoneNumber(this);" maxlength="13" class="form-control required" placeholder="010-1234-5678">
-									</div>
-									<div id="errorPhone" style="font-size:15px; color:red; display:none;">휴대폰번호  양식과 맞지 않습니다..</div>
-									
-									<!-- /row -->
-									<div class="form-group terms">
-										<label class="container_check"><a href="#" data-toggle="modal" data-target="#terms-txt">개인정보 활용 동의</a>
-											<input type="checkbox" id="terms" name="terms" value="Y" class="required">
-											<span class="checkmark"></span>
-										</label>
-									</div>
-								</div>
-								<!-- /step-->
-								<div class="step"style="height:450px;">
-									<h3 class="main_question" style="color: rgb(35, 35, 60); line-height: 27px; letter-spacing: 0em; font-family: Tmoney RoundWind; font-size: 21px; font-style: normal; font-weight: 800;">
-									<strong style="font-family: NanumGothic;font-size: 15px; color: #2A292A;font-weight: normal;font-style: normal;padding-top: 40px;padding-bottom: 18px;">
-									#3 말하자면은 그렇고 그런 사이니깐
-									</strong>
-									주인공과 나?<br>우리 이런사이에요.</h3>
-									<select id = "relation" class="selectpicker" style="width: 100%; height: 36px;border-radius: 10px;font-family: 'Work Sans'; text-indent: 10px;">
-  								      <option value="">관계를 선택 해주세요.</option>
-									  <option value="family">가족</option>
-									  <option value="friend">친구</option>
-									  <option value="company">직장관련</option>
-									  <option value="etc">기타</option>
-									</select>
-									
-									<div class="detail" style="height: auto;overflow: hidden;">									
-										<div id="familyDetail" style="display:none; margin-top: 15px;">
-										  <div class="btn" id="deRelation" value="낳으실제괴로움">#낳으실제괴로움</div>
-										  <div class="btn" id="deRelation" value="우아한형제자매남매들">#우아한형제자매남매들</div>
-										  <div class="btn" id="deRelation" value="집안으르신">#집안으르신</div>
-										  <div class="btn" id="deRelation" value="땅을사면배아픈우리는사촌">#땅을사면배아픈우리는사촌</div>
-										  <div class="btn" id="deRelation" value="5678촌">#5678촌</div>
-										  <div class="btn" id="deRelation" value="족보에함께이름이있는">#족보에함께이름이있는</div>
-										</div>
-										
-										<div id="friendDetail" style="display:none; margin-top: 15px;">
-										  <div class="btn" id="deRelation" value="우린찐친">#우린찐친</div>
-										  <div class="btn" id="deRelation" value="우리가남이가중고교친구">#우리가남이가중고교친구</div>
-										  <div class="btn" id="deRelation" value="가장찬란한시절,우리는함께였다">#가장찬란한시절,우리는함께였다</div>
-										  <div class="btn" id="deRelation" value="캠퍼스를함께거닐던 대학친구">#캠퍼스를함께거닐던 대학친구</div>
-										  <div class="btn" id="deRelation" value="함께한세월보다오래함께할사회친구">#함께한세월보다오래함께할사회친구</div>
-										  <div class="btn" id="deRelation" value="우린서로에게이성이었을까 남사친여사친">#우린서로에게이성이었을까 남사친여사친</div>
-										  <div class="btn" id="deRelation" value="기타를칩시다 기타친구">#기타를칩시다 기타친구</div>
-										  
-										</div>
-									
-										<div id="companyDetail" style="display:none; margin-top: 15px;">
-										  <div class="btn" id="deRelation" value="하늘같은회사선배">#하늘같은회사선배</div>
-										  <div class="btn" id="deRelation" value="동기사랑나라사랑">#동기사랑나라사랑</div>
-										  <div class="btn" id="deRelation" value="회사후배">#회사후배</div>
-										  <div class="btn" id="deRelation" value="또하나의 가..족같은회사동료">#또하나의 가..족같은회사동료</div>
-										</div>
-										
-										<div id="etcDetail" style="display:none; margin-top: 15px;">
-										  <div class="btn" id="deRelation" value="가족보다가까운이웃사촌">#가족보다가까운이웃사촌</div>
-										  <div class="btn" id="deRelation" value="학교동문">#학교동문</div>
-										  <div class="btn" id="deRelation" value="나는누군가우리관계는무얼까 미정이">#나는누군가우리관계는무얼까 미정이</div>
-										  <div class="btn" id="deRelation" value="사진은같이못찍는 어색한사이">#사진은같이못찍는 어색한사이</div>
-										</div>
-								   </div>	
-								</div>
-								<!-- /step-->
-								<div class="step" style="height:450px;">
-									<h3 class="main_question" style="color: rgb(35, 35, 60); line-height: 27px; letter-spacing: 0em; font-family: Tmoney RoundWind; font-size: 21px; font-style: normal; font-weight: 800;">
-									<strong style="font-family: NanumGothic;font-size: 15px; color: #2A292A;font-weight: normal;font-style: normal;padding-top: 40px;padding-bottom: 18px;">
-									#4 결혼식의 진정한 꽃은 하객입니다.
-									</strong>
-									여러분의 멋진 프로필 사진을<br>올려주세요. 신랑신부에게</br>특별한 선물로 제작됩니다.</h3>
+									신랑신부의 생생한 결혼식<br>사진을 올려주세요!</h3>
 									<fieldset class="form-group">
 								        <a href="javascript:void(0)" onclick="$('#pro-image').click()">Upload Image</a>
 								        <input type="file" id="pro-image" name="pro-image" style="display: none;" class="form-control" multiple/>
 								    </fieldset>
 								    <div class="preview-images-zone">
 								        <div class="preview-image preview-show-1">
-								            <div class="image-cancel" data-no="1">x</div>
 								            <div class="image-zone"><img id="pro-img-1" src="img/camera.jpg" onclick="$('#pro-image').click()"></div>
 								            <!-- <div class="tools-edit-image"><a href="javascript:void(0)" data-no="1" class="btn btn-light btn-edit-image">edit</a></div> -->
 								        </div>
 								     </div>
 								    <!--  <input type="button" value="submit" id="btn_upload"/> -->
 								</div>
-								<!-- /step-->
-								<div class="submit step" style="height:450px;">
-									<h3 class="main_question" style="color: rgb(35, 35, 60); line-height: 27px; letter-spacing: 0em; font-family: Tmoney RoundWind; font-size: 18px; font-style: normal; font-weight: 800;">
-									<strong style="font-family: NanumGothic;font-size: 15px; color: #2A292A;font-weight: normal;font-style: normal;padding-top: 40px;padding-bottom: 18px;">
-									#5 진심이 담긴 '찐'축하 캠페인
-									</strong>
-									이름만 쓰는 방명록은 이제 그만!</br>신랑 신부만을 위한</br> 센스있는 축하메세지를 남겨주세요.</h3>
-									<div class="summary">
-									<textarea id="content" name="content" clos="40" rows="8" style="width: 100%; height: 200px;"></textarea>
-									<!-- <input type="text" style="width:100%; height:200px; text-align:right;"> -->
-									</div>
-								</div>
-								<!-- /step-->
 							</div>
 							<!-- /middle-wizard -->
 							<div id="bottom-wizard" style="text-align:center;">
-								<!-- <button type="button" name="backward" class="backward">이전 </button> -->
-								<button type="button" name="forward" class="forward" style="background: rgb(42, 41, 42); border-radius: 25px; width: 189px; box-shadow: 0px 4px 25px rgba(0,0,0,0.1);">
-								다음
-								</button>
-								<button type="button" name="submit" class="submit" data-toggle="modal" data-target="#payModal"" style="background: rgb(42, 41, 42); border-radius: 25px; width: 189px; box-shadow: 0px 4px 25px rgba(0,0,0,0.1); margin-top: -25px; position: absolute;">축의금 보내기</button>
-								<button type="button" id="onlyBoard" class="submit" onclick="result();" style="background:linear-gradient(12.04deg, #DFDDF5 0%, #EBF4FC 100%); border-radius: 25px; width: 189px; box-shadow: 0px 4px 25px rgba(0,0,0,0.1); color:black;margin-top:15px; ">방명록만 보내기</button>
+								<button type="button" name="submit" class="submit" onclick="result();" style="background: rgb(42, 41, 42); border-radius: 25px; width: 189px; box-shadow: 0px 4px 25px rgba(0,0,0,0.1); margin-top: -25px;">결혼식 구경하기</button>
 							</div>
 							<!-- /bottom-wizard -->
 						</form>
@@ -221,77 +92,6 @@
 	</div>
 	<!-- /cd-overlay-content -->
 
-
-	<!-- Modal terms -->
-	<div class="modal fade" id="terms-txt" tabindex="-1" role="dialog" aria-labelledby="termsLabel" aria-hidden="true">
-		<div class="modal-dialog modal-dialog-centered">
-			<div class="modal-content">
-				<div class="modal-header">
-					<h4 class="modal-title" id="termsLabel">Terms and conditions</h4>
-					<button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
-				</div>
-				<div class="modal-body">
-					<p>Lorem ipsum dolor sit amet, in porro albucius qui, in <strong>nec quod novum accumsan</strong>, mei ludus tamquam dolores id. No sit debitis meliore postulant, per ex prompta alterum sanctus, pro ne quod dicunt sensibus.</p>
-					<p>Lorem ipsum dolor sit amet, in porro albucius qui, in nec quod novum accumsan, mei ludus tamquam dolores id. No sit debitis meliore postulant, per ex prompta alterum sanctus, pro ne quod dicunt sensibus. Lorem ipsum dolor sit amet, <strong>in porro albucius qui</strong>, in nec quod novum accumsan, mei ludus tamquam dolores id. No sit debitis meliore postulant, per ex prompta alterum sanctus, pro ne quod dicunt sensibus.</p>
-					<p>Lorem ipsum dolor sit amet, in porro albucius qui, in nec quod novum accumsan, mei ludus tamquam dolores id. No sit debitis meliore postulant, per ex prompta alterum sanctus, pro ne quod dicunt sensibus.</p>
-				<div class="modal-footer">
-					<button type="button" class="btn_1" data-dismiss="modal">Close</button>
-				</div>
-			</div>
-			<!-- /.modal-content -->
-			</div>
-			<!-- /.modal-dialog -->
-		</div>
-	</div>
-	<!-- /.modal -->
-
-	<!-- pay pop-up -->
-	<div class="modal fade" id="payModal" tabindex="-1" role="dialog" aria-labelledby="termsLabel" aria-hidden="true">
-	<button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
-		<div class="modal-dialog modal-dialog-centered">
-			<div class="modal-content">
-				<div>
-					<h4 class="modal-title" id="termsLabel" style="
-																    text-align: center;
-																    margin: 30px 0px 30px 0px;">
-					 축의금 송금방식을</br>선택해주세요.</h4>
-				</div>
- 				<div style=" display: flex;
-											    justify-content: center;
-											    font-size: 18px;
-											    adding-bottom: 30px;">
-					<button type="button" id="kakaoPay" onclick="kakaoPay();" style="color: #FFFFFF;
-																				    border-radius: 25px;
-																				    height: 48px;
-																				    width: 260px;
-																				    background-color: #1C2127;
-																				    box-shadow: 0px 4px 25px rgba(0, 0, 0, 0.2);">
-					카카오톡으로 받기
-					</button>
-					
-				</div>
-				<div style=" display: flex;
-											    justify-content: center;
-											    font-size: 18px;
-											    margin: 1px 0px 11px 0px;
-											    font-color: #FFFFFF;">
-				<button type="button" id="kakaoPay" onclick="kakaoPay();" style="color: #1C2127;
-																				    border-radius: 25px;
-																				    height: 48px;
-																				    width: 260px;
-																				    background-color:#FFFFFF;">
-					문자로 축의정보 받기
-					</button>
-				</div>
-				<!--
-				<div class="modal-footer">
-					<button type="button" class="btn_1" data-dismiss="modal">Close</button>
-				</div> -->
-			</div>
-			<!-- /.modal-content -->
-			</div>
-			<!-- /.modal-dialog -->
-		</div>
 	</div>
 	
 	<!-- COMMON SCRIPTS -->
@@ -307,315 +107,93 @@
 	<script src="js/moding.min.js"></script>
 	
 	<script>
-	// 핸드폰 번호 유효성검사 정규식
-	/* $("#phone").change(function(){
-		var exp = /^(01[016789]{1}|02|0[3-9]{1}[0-9]{1})-?[0-9]{3,4}-?[0-9]{4}$/;
-		var EXP_BLANK = /^\s+|\s+$/g;		
-		var error = document.getElementById("errorPhone");
-		var phoneNum = document.getElementById("phone");
-		var isExpTest = true;
 		
-		var regExp =/(01[016789])([1-9]{1}[0-9]{2,3})([0-9]{4})$/; 
-		var myArray; 
-		if(regExp.test(phoneNum)){ 
-			error.style.display = "none"; 
-			} 
-		else { 
-			error.style.display = "block"; 
-			}
-
-
-				
-	}); */
-
-	
-	
 	$(document).ready(function() {
-		Kakao.init('130a358c3e9686340b0be0be9c95aba0'); // 카카오 실행하기
-	
-		/*관계 선택 시 상세관계 출력  */
-		$('#relation').on('change', function(){
-			 var reObj = document.getElementById("relation");
 
-			 var reDeObj1 = document.getElementById("familyDetail");
-			 var reDeObj2 = document.getElementById("friendDetail");
-			 var reDeObj3 = document.getElementById("companyDetail");
-			 var reDeObj4 = document.getElementById("etcDetail");
-
-			 if(reObj.value == "family"){
-				 reDeObj1.style.display = "block";
-				 reDeObj2.style.display = "none";
-				 reDeObj3.style.display = "none";
-				 reDeObj4.style.display = "none";
-			    }else if(reObj.value == "friend"){
-				 reDeObj1.style.display = "none";
-				 reDeObj2.style.display = "block";
-				 reDeObj3.style.display = "none";
-				 reDeObj4.style.display = "none";
-				}else if(reObj.value == "company"){
-				 reDeObj1.style.display = "none";
-				 reDeObj2.style.display = "none";
-				 reDeObj3.style.display = "block";
-				 reDeObj4.style.display = "none";
-				 }else if(reObj.value == "etc"){
-				 reDeObj1.style.display = "none";
-				 reDeObj2.style.display = "none";
-				 reDeObj3.style.display = "none";
-				 reDeObj4.style.display = "block";}			 
-			})
-			/*관계 선택 시 상세관계 출력  */
-			
-			/* $(document).on('click','#deRelation', function(){
-				document.getElementById("detailRelation").value = document.getElementById("deRelation").value;
-				alert(document.getElementById("detailRelation").value);
-				} */
-		
-
-
-			/*사진 미리보기  */
-			document.getElementById('pro-image').addEventListener('change', readImage, false);	    
-		    $( ".preview-images-zone" ).sortable();
-		    $(document).on('click', '.image-cancel', function() {
-		        let no = $(this).data('no');
-		        $(".preview-image.preview-show-"+no).remove();
-		    });
-		    /*사진 미리보기  */
-
-		   /*  $('#btn_upload').click(function (event) {
-				
-		        
-		    }); */
+		/*사진 미리보기  */
+		document.getElementById('pro-image').addEventListener('change', readImage, false);	    
+	    $( ".preview-images-zone" ).sortable();
+	    $(document).on('click', '.image-cancel', function() {
+	        let no = $(this).data('no');
+	        $(".preview-image.preview-show-"+no).remove();
+	    });
+	    /*사진 미리보기  */
 		    			
-		});
-    	/*사진 미리보기  */
-		var num = 2;
-		function readImage() {
-		    if (window.File && window.FileList && window.FileReader) {
-		        var files = event.target.files; //FileList object
-		        var output = $(".preview-images-zone");
-	
-		        for (let i = 0; i < files.length; i++) {
-		            var file = files[i];
-		            if (!file.type.match('image')) continue;
-		            
-		            var picReader = new FileReader();
-		            
-		            picReader.addEventListener('load', function (event) {
-		                var picFile = event.target;
-		                var html =  '<div class="preview-image preview-show-' + num + '">' +
-		                            '<div class="image-cancel" data-no="' + num + '">x</div>' +
-		                            '<div class="image-zone"><img id="pro-img-' + num + '" src="' + picFile.result + '"></div>' +
-		                            /* '<div class="tools-edit-image"><a href="javascript:void(0)" data-no="' + num + '" class="btn btn-light btn-edit-image">edit</a></div>' + */
-		                            '</div>';
-	
-		                output.append(html);
-		                num = num + 1;
-		            });
-	
-		            picReader.readAsDataURL(file);
-		        }
-		    } else {
-		        console.log('Browser not support');
-		    }
-		}
-     /*사진 미리보기  */
-     document.getElementById('onlyBoard').onclick = function () {
-    	 result();
-     }
-	
-     /*버튼 클릭 시 색 변경  */
-	 var btn = document.getElementsByClassName("btn");
+	});
 
-     function handleClick(event) {
-       console.log(event.target);
-       // console.log(this);
-       // 콘솔창을 보면 둘다 동일한 값이 나온다
+	/*사진 미리보기  */
+	var num = 2;
+	function readImage() {
+	    if (window.File && window.FileList && window.FileReader) {
+	        var files = event.target.files; //FileList object
+	        var output = $(".preview-images-zone");
 
-       console.log(event.target.classList);
+	        for (let i = 0; i < files.length; i++) {
+	            var file = files[i];
+	            if (!file.type.match('image')) continue;
+	            
+	            var picReader = new FileReader();
+	            
+	            picReader.addEventListener('load', function (event) {
+	                var picFile = event.target;
+	                var html =  '<div class="preview-image preview-show-' + num + '">' +
+	                            '<div class="image-cancel" data-no="' + num + '">x</div>' +
+	                            '<div class="image-zone"><img id="pro-img-' + num + '" src="' + picFile.result + '"></div>' +
+	                            /* '<div class="tools-edit-image"><a href="javascript:void(0)" data-no="' + num + '" class="btn btn-light btn-edit-image">edit</a></div>' + */
+	                            '</div>';
 
-       if (event.target.classList[1] === "clicked") {
-         event.target.classList.remove("clicked");
-       } else {
-         for (var i = 0; i < btn.length; i++) {
-           btn[i].classList.remove("clicked");
-         }
-         event.target.classList.add("clicked");
-         document.getElementById("detailRelation").value = event.target.innerText ;
+	                output.append(html);
+	                num = num + 1;
+	            });
 
-       }
-     }
+	            picReader.readAsDataURL(file);
+	        }
+	    } else {
+	        console.log('Browser not support');
+	    }
+	}
+ /*사진 미리보기  */
+    	
+    function result(){
 
-     function init() {
-       for (var i = 0; i < btn.length; i++) {
-         btn[i].addEventListener("click", handleClick);
-       }
-     }
+    		var formData = new FormData();
+      		var inputFile = $("input[name=pro-image]");
+       		var files = inputFile[0].files;
 
-     init();
-     /*버튼 클릭 시 색 변경  */
-     
-	/* 신랑 신부 사진 선택 효과 */
-	function selectHost(host){
-		if(host == "groom"){
-	        var selObj1 = document.getElementById("selectGroom");
-	        var selObj2 = document.getElementById("selectBride");	        
-	        var obj1 = document.getElementById("groom");
-	        var obj2 = document.getElementById("bride");
 
-	        selObj1.style.opacity = "1";
-		    obj1.value = 'Y';
-	        selObj2.style.opacity = "0.4";
-        	obj2.value = 'N';	
-			
-		}else{
-			var selObj1 = document.getElementById("selectGroom");
-	        var selObj2 = document.getElementById("selectBride");	        
-	        var obj1 = document.getElementById("groom");
-	        var obj2 = document.getElementById("bride");
+       		for(var i=0; i < files.length; i++){
+    	    	formData.append('uploadFiles', files[i])
+    	    }
+       		formData.append('guestId', ${guestId })
+            formData.append('weddingId', ${weddingId })
 
-	        selObj1.style.opacity = "0.4";
-		    obj1.value = 'N';
-	        selObj2.style.opacity = "1";
-        	obj2.value = 'Y';
-	        
-			
-		}
-    }
-	/* 신랑 신부 사진 선택 효과 */
-	
- 	function kakaoPay(){
-
-    	 var form = {
-	                 name : document.getElementById("name").value,
-	                phone : document.getElementById("phone").value,
-	          selectGroom : document.getElementById("groom").value,
-	          selectBride : document.getElementById("bride").value,
-	                terms : document.getElementById("terms").value,
-	             relation : document.getElementById("relation").value,
-	           deRelation : document.getElementById("detailRelation").value,
-	              content : document.getElementById("content").value,
-	              weddingId : ${groomInfo.weddingId }
-	                    
-	     			}
-	     $.ajax({
-	     	       url : 'submit',
-	              type : 'POST',
-	              data : form,
-	          dataType : 'json',
-	            success: function(data) {
-	            	goResult(data);
-                        },// 요청 완료 시
-            	        error:function(jqXHR) {
-            	        	alert('detail fail~!!!');
-            	        }// 요청 실패.
-            });
-		 	
-		}
-
-	
-	function result(){
-
-		 var form = {
-	                 name : document.getElementById("name").value,
-	                phone : document.getElementById("phone").value,
-	          selectGroom : document.getElementById("groom").value,
-	          selectBride : document.getElementById("bride").value,
-	                terms : document.getElementById("terms").value,
-	             relation : document.getElementById("relation").value,
-	           deRelation : document.getElementById("detailRelation").value,
-	              content : document.getElementById("content").value,
-	            weddingId : ${groomInfo.weddingId }
-	                    
-	     			}
-	     $.ajax({
-	     	       url : 'submit',
-	              type : 'POST',
-	              data : form,
-	          dataType : 'json',
-	            success: function(data) {
-	            	goResult(data);
-                        },// 요청 완료 시
-            	        error:function(jqXHR) {
-            	        	alert('detail fail~!!!');
-            	        }// 요청 실패.
-            });
-
+    	    $.ajax({
+    	            contentType : false,
+    	            processData : false,
+    	                   data : formData,
+    	                    type: 'POST',
+    	                     url: 'uploadShareFiles',
+    	                dataType:'json',
+    	                success: function (data) {
+        	                goHall();
+    		  				  
+               	        },// 요청 실패.
+               	        error:function(data) {
+               	        	alert('upload fail~!!!');
+        	        }
+    	        });
 	}
 
-	function goResult(data){
-		var formData = new FormData();
-  		var inputFile = $("input[name=pro-image]");
-   		var files = inputFile[0].files;
+	function goHall(){    
+		var form = {
+				    guestId : ${guestId },
+                  weddingId : ${weddingId }
+        	  }
+    	pageHtmlGet("/goHall", form);
+	}
 
-
-   		for(var i=0; i < files.length; i++){
-	    	formData.append('uploadFiles', files[i])
-	    }
-   		formData.append('guestId', data.guestId)
-        formData.append('weddingId', ${groomInfo.weddingId })
-        formData.append('selectGroom', document.getElementById("groom").value)
-
-	    $.ajax({
-	            contentType : false,
-	            processData : false,
-	                   data : formData,
-	                    type: 'POST',
-	                     url: 'fileUpload',
-	                dataType:'json',
-	                success: function (data) {
-
-		            	Kakao.Auth.authorize({
-		  				  redirectUri : 'http://moding.io/result',
-		  				  state : data.kakaoParam
-		  				  });
-           	        },// 요청 실패.
-           	        error:function(data) {
-           	        	alert('upload fail~!!!');
-    	        }
-	        });
-	}	
-		
-	
-	/*  */
-	function inputPhoneNumber(obj) {
-	    var number = obj.value.replace(/[^0-9]/g, "");
-	    var phone = "";
-	
-	    if(number.length < 4) {
-	        return number;
-	    } else if(number.length < 7) {
-	        phone += number.substr(0, 3);
-	        phone += "-";
-	        phone += number.substr(3);
-        } else if(number.length < 11) {
-	        phone += number.substr(0, 3);
-	        phone += "-";
-	        phone += number.substr(3, 3);
-	        phone += "-";
-	        phone += number.substr(6);
-	    } else {
-	        phone += number.substr(0, 3);
-	        phone += "-";
-	        phone += number.substr(3, 4);
-	        phone += "-";
-	        phone += number.substr(7);
-	    }
-	    obj.value = phone;
-		}
-	/*  */
-	
-	
-	
-	
-	/* function goNext(){
-		alert("test");
-		} */
-
-		
-
-	</script>
-	<script src="https://developers.kakao.com/sdk/js/kakao.js"></script>
-	<style>
+</script>
+<style>
 	.btn {
 		border: 1px solid;
 		float: left;

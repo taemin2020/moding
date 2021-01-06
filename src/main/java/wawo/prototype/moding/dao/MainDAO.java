@@ -29,6 +29,8 @@ public interface MainDAO {
 
 	Map<String, Object> getGroomAccountInfo(Map<String, Object> param);
 	Map<String, Object> getBrideAccountInfo(Map<String, Object> param);
+
+	List<Map<String, Object>> getSharePic(String weddingId);
 	
 	
 }

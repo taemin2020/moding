@@ -14,6 +14,7 @@ public @Data class WeddingAttDTO {
 	
 	private int attachId;
 	private int weddingId;
+	private int guestId;
 	private String attachNm;
 	private String type;
 	private double size;
@@ -74,6 +75,12 @@ public @Data class WeddingAttDTO {
 	}
 	public void setAttachId(int attachId) {
 		this.attachId = attachId;
+	}
+	public int getGuestId() {
+		return guestId;
+	}
+	public void setGuestId(int guestId) {
+		this.guestId = guestId;
 	} 
 		
 	

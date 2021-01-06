@@ -184,6 +184,29 @@
 
   </select>
   
+  <select id="getSharePic" parameterType="java.util.HashMap" resultType="wawo.prototype.moding.dto.WeddingAttDTO" >
+			
+  	 SELECT ATTACH_ID attachId
+ 	      , GUEST_ID guestId
+	      , ATTACH_NM attachNm
+	  	  , TYPE 
+	      , SIZE
+	      , CREATE_DTM createDtm
+	      , UPDATE_DTM updateDtm
+	      , STATUS 
+
+	FROM GUEST_ATTACH_INFO 
+	WHERE STATUS = 'Y'
+	AND GUEST_ID IN (
+	    	  			 SELECT GUEST_ID
+	    				 FROM guest_info
+	    				 WHERE HOST_ID IN (
+	 		   						 SELECT HOST_ID
+	    								 FROM HOST_INFO
+	    								 WHERE WEDDING_ID = #{weddingId})) 
+    
+  </select>
+  
   <insert id="insertGuestInfo"  parameterMap="param"><!-- selectUsers()메서드를 호출하면 실행할 SELECT문이며, 
 						MainDTO 객체를 파라미터로 받아, MainDTO객체를 반환합니다.-->
   	 INSERT INTO GUEST_INFO (
