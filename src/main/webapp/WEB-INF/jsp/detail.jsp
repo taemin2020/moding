@@ -374,14 +374,26 @@
 	
 	
 	// 핸드폰 번호 유효성검사 정규식
-	/* $("#phone").change(function(){
+	$("#name").change(function(){
+		if(document.getElementById("name").value == "" || document.getElementById("name").value == null){
+				document.getElementById("errorName").style.display = "block";
+				event.stopImmediatePropagation();	
+		}else{
+				document.getElementById("errorName").style.display = "none";
+		}
+				
+	});
+	
+	
+	
+	$("#phone").change(function(){
 		var exp = /^(01[016789]{1}|02|0[3-9]{1}[0-9]{1})-?[0-9]{3,4}-?[0-9]{4}$/;
 		var EXP_BLANK = /^\s+|\s+$/g;		
 		var error = document.getElementById("errorPhone");
-		var phoneNum = document.getElementById("phone");
+		var phoneNum = document.getElementById("phone").value;
 		var isExpTest = true;
 		
-		var regExp =/(01[016789])([1-9]{1}[0-9]{2,3})([0-9]{4})$/; 
+		var regExp =/(01[016789])-([1-9]{1}[0-9]{2,3})-([0-9]{4})$/; 
 		var myArray; 
 		if(regExp.test(phoneNum)){ 
 			error.style.display = "none"; 
@@ -392,7 +404,7 @@
 
 
 				
-	}); */
+	}); 
 
 	
 	
@@ -688,12 +700,13 @@
         display: flex;
         align-items: center;
         justify-content: center;
-        background-color: darkgrey;
+        background-color: #BDC5E9;
         margin: 3px 5px;
+        font-weight : bold;
 	}
 	
 	.clicked {
-        background-color: blue;
+        background-color: #2A292A;
         color: white;
       }
       
@@ -767,10 +780,7 @@
 	    padding-top: 0px;
 	}
 	
-	#deRelation {
-		background : white;
-		font-weight : bold;	
-	}
+
 
 	
 	
