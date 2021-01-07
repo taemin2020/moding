@@ -380,15 +380,7 @@
 		}
 		
 		
-		// 방명록 유효성 검사 추가
-	    if(document.getElementsByClassName('step wizard-step current')[0].innerText.indexOf('#5 ') != "-1"){ 
-	    	if(document.getElementById("content").value == "" || document.getElementById("content").value == null){
-				document.getElementById("errorContent").style.display = "block";
-				event.stopImmediatePropagation();	
-			}else{
-				document.getElementById("errorContent").style.display = "none";
-			}
-		}
+		
 	
 	};
 	
@@ -576,6 +568,17 @@
 	/* 신랑 신부 사진 선택 효과 */
 	
  	function result(){
+ 		
+ 		
+ 		// 방명록 유효성 검사 추가
+	    if(document.getElementsByClassName('step wizard-step current')[0].innerText.indexOf('#5 ') != "-1"){ 
+	    	if(document.getElementById("content").value == "" || document.getElementById("content").value == null){
+				document.getElementById("errorContent").style.display = "block";
+				event.stopImmediatePropagation();	
+			}else{
+				document.getElementById("errorContent").style.display = "none";
+			}
+		}
 
     	 var form = {
 	                 name : document.getElementById("name").value,
