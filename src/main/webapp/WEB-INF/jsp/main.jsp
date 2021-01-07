@@ -138,25 +138,18 @@
 	        title: 'Moding',
 	        description: '모딩을 결혼식에 참석하지 못한 지인들에게 공유하여 축하하는 마음을 나누세요.',
 	        imageUrl:
-	          'http://moding.io/img/logo.jpg',
+	          'http://moding.io/img/Favicon.jpg',
 	        link: {
-	          mobileWebUrl: 'http://moding.io',
-	          webUrl: 'http://moding.io',
+	          mobileWebUrl: ${kakaoURL},
+	          webUrl: ${kakaoURL},
 	        },
 	      },
 	      buttons: [
 	        {
-	          title: '웹으로 보기',
+	          title: '모딩으로 축하하기',
 	          link: {
-	            mobileWebUrl: 'http://moding.io',
-	            webUrl: 'http://moding.io',
-	          },
-	        },
-	        {
-	          title: '앱으로 보기',
-	          link: {
-	            mobileWebUrl: 'http://moding.io',
-	            webUrl: 'http://moding.io',
+	            mobileWebUrl: ${kakaoURL},
+	            webUrl: ${kakaoURL},
 	          },
 	        },
 	      ],

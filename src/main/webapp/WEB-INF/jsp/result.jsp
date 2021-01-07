@@ -50,6 +50,9 @@
 		</div>
 	</section>
 	<div>
+	<a onclick="kakaoPay();" class="btn btn-xl btn-light mr-4"	style="font-family: NanumGothic;padding: 5px;width: 100%;box-shadow:  0px 4px 25px rgba(0, 0, 0, 0.1);border-radius: 25px;font-weight: normal;">축하하러 가기</a>
+	</div>
+	<div>
 	<c:forEach items="${slidePic}" var="slidePic">
 		<div style="padding:0px 10px">
 		<img src="img/<c:out value="${slidePic.attachNm}"/>" style="width:100%">
@@ -73,10 +76,15 @@
 	
 	$(document).ready(function() {
 		Kakao.init('130a358c3e9686340b0be0be9c95aba0'); // 카카오 실행하기
+
+	});
+	
+	function kakaoPay(){
+	
 		var form = {
 				grant_type : 'authorization_code',
 				client_id : '130a358c3e9686340b0be0be9c95aba0',
-				redirect_uri : 'http://moding.io/result',
+				redirect_uri : 'http://localhost:8080/result',
 				code : ${accessCode}
 
 				}
@@ -95,11 +103,8 @@
       	        	alert('계좌정보 전송 실패');
       	        }// 요청 실패.
       });
-
-		 
-
-		
-	});
+	
+	}
 
 	function sendKakao(data){
 
@@ -123,7 +128,7 @@
 					          mobile_web_url: 'https://wawo.netlify.app',
 					        },
 					      },
-					      button_title: '바로 확인',
+					      button_title: '모딩 홈페이지',
 					    },
 					  },
 					  success: function(response) {

@@ -76,8 +76,10 @@ public class MainController {
 		
 		Map<String, Object> weddingInfo = mainService.getWeddingInfo(param);   	
 		List<Map<String, Object>> slidePic = mainService.getSlidePic(String.valueOf(weddingInfo.get("weddingId")));
-	   		
+	   	String kakaoURL = "'http://moding.io/index?bride=" + param.get("bride") + "&groom=" + param.get("groom") + "'";
+		
 	   	model.addAttribute("weddingInfo", weddingInfo);
+	   	model.addAttribute("kakaoURL", kakaoURL);
 	   	model.addAttribute("slidePic", slidePic);
 	   	
 		System.out.println(param);

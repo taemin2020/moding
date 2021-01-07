@@ -65,7 +65,7 @@
 									<section id="about">
 									<div class="container text-center">
 										<div class="row">
-											<div class="col-lg-10 mx-auto required" style="padding: 0px;">							
+											<div class="col-lg-10 mx-auto" style="padding: 0px;">							
 												<div id="selectGroom" class="image" value="N" onclick="selectHost('groom');" style="opacity:0.4;">
 													<img src="img/${groomInfo.attachNm }" alt="groom" style="border-radius: 5px; float:left; width:45%; height:auto;">
 												</div>
@@ -123,6 +123,8 @@
 									  <option value="etc">기타</option>
 									</select>
 									
+									<div id="errorRelation" style="font-size:15px; color:red; display:none;">신랑신부와의 관계를 선택 해주세요.</div>								
+									
 									<div class="detail" style="height: auto;overflow: hidden;">									
 										<div id="familyDetail" style="display:none; margin-top: 15px;">
 										  <div class="btn" id="deRelation" value="낳으실제괴로움">#낳으실제괴로움</div>
@@ -165,16 +167,16 @@
 									<strong style="font-family: NanumGothic;font-size: 15px; color: #2A292A;font-weight: normal;font-style: normal;padding-top: 40px;padding-bottom: 18px;">
 									#4 결혼식의 진정한 꽃은 하객입니다.
 									</strong>
-									여러분의 멋진 프로필 사진을<br>올려주세요. 신랑신부에게</br>특별한 선물로 제작됩니다.</h3>
+									코로나19로 참석 하지 못하는<br>하객분들을 위한 손가락하트 <span style="color:red;">♥</span></br>챌린지에 참여 하세요<span style="font-size:11px;">(선택사항)</span></br></br><span style="font-size:16px;">(추첨을 통해 기프티콘을 선물 해드립니다.)</span></h3>
 									<fieldset class="form-group">
 								        <a href="javascript:void(0)" onclick="$('#pro-image').click()">Upload Image</a>
 								        <input type="file" id="pro-image" name="pro-image" style="display: none;" class="form-control" multiple/>
 								    </fieldset>
 								    <div class="preview-images-zone">
 								        <div class="preview-image preview-show-1">
-								            <div class="image-cancel" data-no="1">x</div>
-								            <div class="image-zone"><img id="pro-img-1" src="img/camera.jpg" onclick="$('#pro-image').click()"></div>
-								            <!-- <div class="tools-edit-image"><a href="javascript:void(0)" data-no="1" class="btn btn-light btn-edit-image">edit</a></div> -->
+								            <!-- <div class="image-cancel" data-no="1">x</div> -->
+								            <div class="image-zone"><img id="pro-img-1" src="img/fingerHeart.jpg" onclick="$('#pro-image').click()"></div>
+								            <div class="tools-edit-image"><a href="javascript:void(0)" data-no="1" class="btn btn-light btn-edit-image">edit</a></div>
 								        </div>
 								     </div>
 								    <!--  <input type="button" value="submit" id="btn_upload"/> -->
@@ -186,6 +188,7 @@
 									#5 진심이 담긴 '찐'축하 캠페인
 									</strong>
 									이름만 쓰는 방명록은 이제 그만!</br>신랑 신부만을 위한</br> 센스있는 축하메세지를 남겨주세요.</h3>
+									<div id="errorContent" style="font-size:15px; color:red; display:none;">신랑신부를 위한 덕담 한마디를 작성 해주세요.</div>
 									<div class="summary">
 									<textarea id="content" name="content" clos="40" rows="8" style="width: 100%; height: 200px;"></textarea>
 									<!-- <input type="text" style="width:100%; height:200px; text-align:right;"> -->
@@ -199,8 +202,8 @@
 								<button type="button" class="forward" onclick = "checkVal();" style="background: rgb(42, 41, 42); border-radius: 25px; width: 189px; box-shadow: 0px 4px 25px rgba(0,0,0,0.1);">
 								다음
 								</button>
-								<button type="button" name="submit" class="submit" data-toggle="modal" data-target="#payModal"" style="background: rgb(42, 41, 42); border-radius: 25px; width: 189px; box-shadow: 0px 4px 25px rgba(0,0,0,0.1); margin-top: -25px; position: absolute;">축의금 보내기</button>
-								<button type="button" id="onlyBoard" class="submit" onclick="result();" style="background:linear-gradient(12.04deg, #DFDDF5 0%, #EBF4FC 100%); border-radius: 25px; width: 189px; box-shadow: 0px 4px 25px rgba(0,0,0,0.1); color:black;margin-top:15px; ">방명록만 보내기</button>
+								<button type="button" name="submit" class="submit" onclick="result();" style="background: rgb(42, 41, 42); border-radius: 25px; width: 189px; box-shadow: 0px 4px 25px rgba(0,0,0,0.1); margin-top: -25px; position: absolute;">방명록 작성완료</button>
+								<!-- <button type="button" id="onlyBoard" class="submit" onclick="result();" style="background:linear-gradient(12.04deg, #DFDDF5 0%, #EBF4FC 100%); border-radius: 25px; width: 189px; box-shadow: 0px 4px 25px rgba(0,0,0,0.1); color:black;margin-top:15px; ">방명록만 보내기</button> -->
 							</div>
 							<!-- /bottom-wizard -->
 						</form>
@@ -366,14 +369,31 @@
 	    //
 	    
 	    // 관계 유효성 검사 추가
-	    
+	    if(document.getElementsByClassName('step wizard-step current')[0].innerText.indexOf('#3') != "-1"){ 
+	    	if(document.getElementsByClassName('btn clicked').length == "0"){
+				document.getElementById("errorRelation").style.display = "block";
+				event.stopImmediatePropagation();				
+	    	}else{
+	    		document.getElementById("errorRelation").style.display = "none";
+	    	}
+		
+		}
 		
 		
+		// 방명록 유효성 검사 추가
+	    if(document.getElementsByClassName('step wizard-step current')[0].innerText.indexOf('#5 ') != "-1"){ 
+	    	if(document.getElementById("content").value == "" || document.getElementById("content").value == null){
+				document.getElementById("errorContent").style.display = "block";
+				event.stopImmediatePropagation();	
+			}else{
+				document.getElementById("errorContent").style.display = "none";
+			}
+		}
 	
 	};
 	
 	
-	// 핸드폰 번호 유효성검사 정규식
+	
 	$("#name").change(function(){
 		if(document.getElementById("name").value == "" || document.getElementById("name").value == null){
 				document.getElementById("errorName").style.display = "block";
@@ -385,7 +405,7 @@
 	});
 	
 	
-	
+	// 핸드폰 번호 유효성검사 정규식
 	$("#phone").change(function(){
 		var exp = /^(01[016789]{1}|02|0[3-9]{1}[0-9]{1})-?[0-9]{3,4}-?[0-9]{4}$/;
 		var EXP_BLANK = /^\s+|\s+$/g;		
@@ -404,7 +424,8 @@
 
 
 				
-	}); 
+	});
+ 
 
 	
 	
@@ -459,10 +480,6 @@
 		    });
 		    /*사진 미리보기  */
 
-		   /*  $('#btn_upload').click(function (event) {
-				
-		        
-		    }); */
 		    			
 		});
     	/*사진 미리보기  */
@@ -497,9 +514,6 @@
 		    }
 		}
      /*사진 미리보기  */
-     document.getElementById('onlyBoard').onclick = function () {
-    	 result();
-     }
 	
      /*버튼 클릭 시 색 변경  */
 	 var btn = document.getElementsByClassName("btn");
@@ -561,7 +575,7 @@
     }
 	/* 신랑 신부 사진 선택 효과 */
 	
- 	function kakaoPay(){
+ 	function result(){
 
     	 var form = {
 	                 name : document.getElementById("name").value,
@@ -588,36 +602,6 @@
             	        }// 요청 실패.
             });
 		 	
-		}
-
-	
-	function result(){
-
-		 var form = {
-	                 name : document.getElementById("name").value,
-	                phone : document.getElementById("phone").value,
-	          selectGroom : document.getElementById("groom").value,
-	          selectBride : document.getElementById("bride").value,
-	                terms : document.getElementById("terms").value,
-	             relation : document.getElementById("relation").value,
-	           deRelation : document.getElementById("detailRelation").value,
-	              content : document.getElementById("content").value,
-	            weddingId : ${groomInfo.weddingId }
-	                    
-	     			}
-	     $.ajax({
-	     	       url : 'submit',
-	              type : 'POST',
-	              data : form,
-	          dataType : 'json',
-	            success: function(data) {
-	            	goResult(data);
-                        },// 요청 완료 시
-            	        error:function(jqXHR) {
-            	        	alert('detail fail~!!!');
-            	        }// 요청 실패.
-            });
-
 	}
 
 	function goResult(data){
@@ -643,12 +627,13 @@
 	                success: function (data) {
 
 		            	Kakao.Auth.authorize({
-		  				  redirectUri : 'http://moding.io/result',
+		  				  redirectUri : 'http://localhost:8080/result',
 		  				  state : data.kakaoParam
 		  				  });
+		  				  
            	        },// 요청 실패.
            	        error:function(data) {
-           	        	alert('upload fail~!!!');
+           	        	alert('files upload fail~!!!');
     	        }
 	        });
 	}	
