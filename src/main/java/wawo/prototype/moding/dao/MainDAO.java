@@ -31,6 +31,14 @@ public interface MainDAO {
 	Map<String, Object> getBrideAccountInfo(Map<String, Object> param);
 
 	List<Map<String, Object>> getSharePic(String weddingId);
+
+	String getKakaoImgNm(String weddingId);
+
+	String getKakaoPayImgNm(String weddingId);
+
+	String getKakaoInviURL(String weddingId);
+
+	String getHostId(Map<String, Object> param);
 	
 	
 }

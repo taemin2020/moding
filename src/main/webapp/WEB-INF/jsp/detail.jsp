@@ -41,6 +41,8 @@
 	<input type="hidden" id="bride" name="bride" value="N">
 	<input type="hidden" id="detailRelation" name="detailRelation" value="">
 	<input type="hidden" id="account" name="account" value="">
+	<input type="hidden" id="brideNm" value="${brideInfo.hostNm }">
+    <input type="hidden" id="groomNm" value="${groomInfo.hostNm }">
 	<!-- /menu -->
 	<div id="progressbar"></div>
 	<div class="container-fluid full-height">
@@ -57,8 +59,8 @@
 							</a>
 							<div id="middle-wizard">
 								<div class="step" style="height:450px;">
-									<h3 class="main_question" style="color: rgb(35, 35, 60); line-height: 27px; letter-spacing: 0em; font-family: Tmoney RoundWind; font-size: 21px; font-style: normal; font-weight: 800;">
-									<strong style="font-family: NanumGothic;font-size: 15px; color: #2A292A;font-weight: normal;font-style: normal;padding-top: 40px;padding-bottom:18px;">
+									<h3 class="main_question" style="color: rgb(35, 35, 60); line-height: 27px; letter-spacing: 0em; font-family: Tmoney RoundWind; font-size: 21px; font-style: normal; font-weight: bold;">
+									<strong style="font-family: system-ui;font-size: 15px; color: #2A292A;font-weight: normal;font-style: normal;padding-top: 40px;padding-bottom:18px;">
 									#1 우리 결혼해요!
 									</strong>
 									누구를 축하해주러 오셨나요?</h3>
@@ -73,24 +75,24 @@
 												    <img src="img/${brideInfo.attachNm }" alt="bride" style="border-radius: 5px; float:right; width:45%; height:auto;">
 												</div>
 											</div>
-											<span style="margin-top: 3px;width: 45%;text-align: left;">
+											<span style="margin-top: 10px;width: 45%;text-align: left; font-family: fantasy;font-weight: bold;">
 										    	신랑 ${groomInfo.hostNm }
 											</span>
-											<span style="width: 45%;margin-top: 3px;text-align: left;margin-left: 10%;">
+											<span style="width: 45%;margin-top: 10px;text-align: left;margin-left: 10%; font-family: fantasy;font-weight: bold;">
 											    신부 ${brideInfo.hostNm }
 											</span>
 										</div>
-										<div id="errorHost" style="font-size:15px; color:red; display:none;">방명록을 등록하실 대상을 선택 해주세요.</div>									
+										<div id="errorHost" style="font-size:15px; color:red; display:none; padding-top:20px;">방명록을 등록하실 대상을 선택 해주세요.</div>									
 									</div>
 								</section>
 								</div>
 								<!-- /step-->
 								<div class="step" style="height:450px;">
-									<h3 class="main_question" style="color: rgb(35, 35, 60); line-height: 27px; letter-spacing: 0em; font-family: Tmoney RoundWind; font-size: 21px; font-style: normal; font-weight: 800;">
-									<strong style="font-family: NanumGothic;font-size: 15px; color: #2A292A;font-weight: normal;font-style: normal;padding-top: 40px;padding-bottom: 18px;">
+									<h3 class="main_question" style="color: rgb(35, 35, 60); line-height: 27px; letter-spacing: 0em; font-family: Tmoney RoundWind; font-size: 21px; font-style: normal; font-weight: bold;">
+									<strong style="font-family: system-ui;font-size: 15px; color: #2A292A;font-weight: normal;font-style: normal;padding-top: 40px;padding-bottom: 18px;">
 									#2 잠시 펜은 넣어두세요
 									</strong>
-									정신없는 결혼식 발자국을<br>꼭 남겨주세요.</h3>
+									여러분의 이름과 연락처로<br>방명록을 남겨주세요.</h3>
 									<div class="form-group">
 										<input type="text" id="name" name="name" class="form-control" placeholder="이름">
 									</div>
@@ -110,8 +112,8 @@
 								</div>
 								<!-- /step-->
 								<div class="step"style="height:450px;">
-									<h3 class="main_question" style="color: rgb(35, 35, 60); line-height: 27px; letter-spacing: 0em; font-family: Tmoney RoundWind; font-size: 21px; font-style: normal; font-weight: 800;">
-									<strong style="font-family: NanumGothic;font-size: 15px; color: #2A292A;font-weight: normal;font-style: normal;padding-top: 40px;padding-bottom: 18px;">
+									<h3 class="main_question" style="color: rgb(35, 35, 60); line-height: 27px; letter-spacing: 0em; font-family: Tmoney RoundWind; font-size: 21px; font-style: normal; font-weight: bold;">
+									<strong style="font-family: system-ui;font-size: 15px; color: #2A292A;font-weight: normal;font-style: normal;padding-top: 40px;padding-bottom: 18px;">
 									#3 말하자면은 그렇고 그런 사이니깐
 									</strong>
 									주인공과 나?<br>우리 이런사이에요.</h3>
@@ -119,76 +121,83 @@
   								      <option value="">관계를 선택 해주세요.</option>
 									  <option value="family">가족</option>
 									  <option value="friend">친구</option>
-									  <option value="company">직장관련</option>
-									  <option value="etc">기타</option>
+									  <option value="company">직장</option>
+									  <option value="etc">이런관계도있어요</option>
 									</select>
 									
 									<div id="errorRelation" style="font-size:15px; color:red; display:none;">신랑신부와의 관계를 선택 해주세요.</div>								
 									
 									<div class="detail" style="height: auto;overflow: hidden;">									
 										<div id="familyDetail" style="display:none; margin-top: 15px;">
-										  <div class="btn" id="deRelation" value="낳으실제괴로움">#낳으실제괴로움</div>
-										  <div class="btn" id="deRelation" value="우아한형제자매남매들">#우아한형제자매남매들</div>
-										  <div class="btn" id="deRelation" value="집안으르신">#집안으르신</div>
-										  <div class="btn" id="deRelation" value="땅을사면배아픈우리는사촌">#땅을사면배아픈우리는사촌</div>
-										  <div class="btn" id="deRelation" value="5678촌">#5678촌</div>
-										  <div class="btn" id="deRelation" value="족보에함께이름이있는">#족보에함께이름이있는</div>
+										  <div class="btn" id="deRelation" value="하나뿐인형제자매" style="color: white;">#하나뿐인형제자매</div>
+										  <div class="btn" id="deRelation" value="가까운사촌" style="color: white;">#가까운사촌</div>
+										  <div class="btn" id="deRelation" value="낳으실제괴로움" style="color: white;">#낳으실제괴로움</div>
+										  <div class="btn" id="deRelation" value="집안으르신" style="color: white;">#집안으르신</div>
+										  <div class="btn" id="deRelation" value="5678촌" style="color: white;">#5678촌</div>
 										</div>
 										
 										<div id="friendDetail" style="display:none; margin-top: 15px;">
-										  <div class="btn" id="deRelation" value="우린찐친">#우린찐친</div>
-										  <div class="btn" id="deRelation" value="우리가남이가중고교친구">#우리가남이가중고교친구</div>
-										  <div class="btn" id="deRelation" value="가장찬란한시절,우리는함께였다">#가장찬란한시절,우리는함께였다</div>
-										  <div class="btn" id="deRelation" value="캠퍼스를함께거닐던 대학친구">#캠퍼스를함께거닐던 대학친구</div>
-										  <div class="btn" id="deRelation" value="함께한세월보다오래함께할사회친구">#함께한세월보다오래함께할사회친구</div>
-										  <div class="btn" id="deRelation" value="우린서로에게이성이었을까 남사친여사친">#우린서로에게이성이었을까 남사친여사친</div>
-										  <div class="btn" id="deRelation" value="기타를칩시다 기타친구">#기타를칩시다 기타친구</div>
-										  
+										  <div class="btn" id="deRelation" value="동네친구" style="color: white;">#동네친구</div>
+										  <div class="btn" id="deRelation" value="중고교친구" style="color: white;">#중고교친구</div>
+										  <div class="btn" id="deRelation" value="우린소중한친구" style="color: white;">#우린소중한친구</div>
+										  <div class="btn" id="deRelation" value="캠퍼스를함께한대학친구" style="color: white;">#캠퍼스를함께한대학친구</div>
+										  <div class="btn" id="deRelation" value="둘도없는사회친구" style="color: white;">#둘도없는사회친구</div>
+										  <div class="btn" id="deRelation" value="남사친여사친" style="color: white;">#남사친여사친</div>
 										</div>
 									
 										<div id="companyDetail" style="display:none; margin-top: 15px;">
-										  <div class="btn" id="deRelation" value="하늘같은회사선배">#하늘같은회사선배</div>
-										  <div class="btn" id="deRelation" value="동기사랑나라사랑">#동기사랑나라사랑</div>
-										  <div class="btn" id="deRelation" value="회사후배">#회사후배</div>
-										  <div class="btn" id="deRelation" value="또하나의 가..족같은회사동료">#또하나의 가..족같은회사동료</div>
+										  <div class="btn" id="deRelation" value="하늘같은회사선배" style="color: white;">#직장동료</div>
+										  <div class="btn" id="deRelation" value="동기사랑나라사랑" style="color: white;">#동기사랑나라사랑</div>
+										  <div class="btn" id="deRelation" value="하늘같은회사선배" style="color: white;">#하늘같은회사선배</div>
+										  <div class="btn" id="deRelation" value="회사후배" style="color: white;">#회사후배</div>
+										  <div class="btn" id="deRelation" value="또하나의 가..족같은회사동료" style="color: white;">#또하나의 가..족같은회사동료</div>
+										  <div class="btn" id="deRelation" value="옛직장동료" style="color: white;">#옛직장동료</div>
 										</div>
 										
 										<div id="etcDetail" style="display:none; margin-top: 15px;">
-										  <div class="btn" id="deRelation" value="가족보다가까운이웃사촌">#가족보다가까운이웃사촌</div>
-										  <div class="btn" id="deRelation" value="학교동문">#학교동문</div>
-										  <div class="btn" id="deRelation" value="나는누군가우리관계는무얼까 미정이">#나는누군가우리관계는무얼까 미정이</div>
-										  <div class="btn" id="deRelation" value="사진은같이못찍는 어색한사이">#사진은같이못찍는 어색한사이</div>
+										  <div class="btn" id="deRelation" value="아는형님누나" style="color: white;">#아는형님누나</div>
+										  <div class="btn" id="deRelation" value="아는동생" style="color: white;">#아는동생</div>
+										  <div class="btn" id="deRelation" value="아는언니오빠" style="color: white;">#아는언니오빠</div>
+										  <div class="btn" id="deRelation" value="우린서로에게이성이었을까?" style="color: white;">#우린서로에게이성이었을까?</div>
+										  <div class="btn" id="deRelation" value="사진은같이못찍는어색한사이" style="color: white;">#사진은같이못찍는어색한사이</div>
+										  <div class="btn" id="deRelation" value="내가 여기와도 될까? 인스타친구" style="color: white;">#내가 여기와도 될까? 인스타친구</div>
+										  <div class="btn" id="deRelation" value="땅을사면배아픈우리는사촌" style="color: white;">#땅을사면배아픈우리는사촌</div>
 										</div>
 								   </div>	
 								</div>
 								<!-- /step-->
 								<div class="step" style="height:450px;">
-									<h3 class="main_question" style="color: rgb(35, 35, 60); line-height: 27px; letter-spacing: 0em; font-family: Tmoney RoundWind; font-size: 21px; font-style: normal; font-weight: 800;">
-									<strong style="font-family: NanumGothic;font-size: 15px; color: #2A292A;font-weight: normal;font-style: normal;padding-top: 40px;padding-bottom: 18px;">
+									<h3 class="main_question" style="color: rgb(35, 35, 60); line-height: 27px; letter-spacing: 0em; font-family: Tmoney RoundWind; font-size: 21px; font-style: normal; font-weight: bold;">
+									<strong style="font-family: system-ui;font-size: 15px; color: #2A292A;font-weight: normal;font-style: normal;padding-top: 40px;padding-bottom: 18px;">
 									#4 결혼식의 진정한 꽃은 하객입니다.
 									</strong>
-									코로나19로 참석 하지 못하는<br>하객분들을 위한 손가락하트 <span style="color:red;">♥</span></br>챌린지에 참여 하세요<span style="font-size:11px;">(선택사항)</span></br></br><span style="font-size:16px;">(추첨을 통해 기프티콘을 선물 해드립니다.)</span></h3>
+									코로나19로 참석 하지 못하는<br>하객분들을 위한 하트<span style="color:red;">♥</span></br>챌린지에 참여 하세요</br></br><span style="font-size:12px;">(추첨을 통해 기프티콘을 선물 해드립니다.)</span></h3>
 									<fieldset class="form-group">
-								        <a href="javascript:void(0)" onclick="$('#pro-image').click()">Upload Image</a>
+								        <!-- <a href="javascript:void(0)" onclick="$('#pro-image').click()">Upload Image</a> -->
 								        <input type="file" id="pro-image" name="pro-image" style="display: none;" class="form-control" multiple/>
 								    </fieldset>
 								    <div class="preview-images-zone">
 								        <div class="preview-image preview-show-1">
 								            <!-- <div class="image-cancel" data-no="1">x</div> -->
-								            <div class="image-zone"><img id="pro-img-1" src="img/fingerHeart.jpg" onclick="$('#pro-image').click()"></div>
-								            <div class="tools-edit-image"><a href="javascript:void(0)" data-no="1" class="btn btn-light btn-edit-image">edit</a></div>
+								            <div class="image-zone"><img id="pro-img-1" src="img/camera.jpg" onclick="$('#pro-image').click()"></div>
+								        </div>
+								        <div class="preview-image preview-show-2">
+								        	<div class="image-zone"><img id="pro-img-2" src="img/fingerHeart1.jpg" onclick="$('#pro-image').click()"></div>
+								        </div>
+								        <div class="preview-image preview-show-3">
+								        	<div class="image-zone"><img id="pro-img-3" src="img/fingerHeart2.jpg" onclick="$('#pro-image').click()"></div>
 								        </div>
 								     </div>
 								    <!--  <input type="button" value="submit" id="btn_upload"/> -->
 								</div>
 								<!-- /step-->
 								<div class="submit step" style="height:450px;">
-									<h3 class="main_question" style="color: rgb(35, 35, 60); line-height: 27px; letter-spacing: 0em; font-family: Tmoney RoundWind; font-size: 18px; font-style: normal; font-weight: 800;">
-									<strong style="font-family: NanumGothic;font-size: 15px; color: #2A292A;font-weight: normal;font-style: normal;padding-top: 40px;padding-bottom: 18px;">
+									<h3 class="main_question" style="color: rgb(35, 35, 60); line-height: 27px; letter-spacing: 0em; font-family: Tmoney RoundWind; font-size: 18px; font-style: normal; font-weight: bold;">
+									<strong style="font-family: system-ui;font-size: 15px; color: #2A292A;font-weight: normal;font-style: normal;padding-top: 40px;padding-bottom: 18px;">
 									#5 진심이 담긴 '찐'축하 캠페인
 									</strong>
-									이름만 쓰는 방명록은 이제 그만!</br>신랑 신부만을 위한</br> 센스있는 축하메세지를 남겨주세요.</h3>
-									<div id="errorContent" style="font-size:15px; color:red; display:none;">신랑신부를 위한 덕담 한마디를 작성 해주세요.</div>
+									이름만 쓰는 방명록은 이제 그만!</br> 센스있는 축하메세지를 남겨주세요.</h3>
+									<div id="errorContent" style="font-size:15px; color:red; display:none; padding: 8px 0px;font-family: system-ui;">신랑신부를 위한 축하 메세지를 작성 해주세요.</div>
 									<div class="summary">
 									<textarea id="content" name="content" clos="40" rows="8" style="width: 100%; height: 200px;"></textarea>
 									<!-- <input type="text" style="width:100%; height:200px; text-align:right;"> -->
@@ -202,7 +211,7 @@
 								<button type="button" class="forward" onclick = "checkVal();" style="background: rgb(42, 41, 42); border-radius: 25px; width: 189px; box-shadow: 0px 4px 25px rgba(0,0,0,0.1);">
 								다음
 								</button>
-								<button type="button" name="submit" class="submit" onclick="result();" style="background: rgb(42, 41, 42); border-radius: 25px; width: 189px; box-shadow: 0px 4px 25px rgba(0,0,0,0.1); margin-top: -25px; position: absolute;">방명록 작성완료</button>
+								<button type="button" name="submit" class="submit" onclick="contentVal();" style="background: rgb(42, 41, 42); border-radius: 25px; width: 189px; box-shadow: 0px 4px 25px rgba(0,0,0,0.1); margin-top: -25px;">방명록 보내기</button>
 								<!-- <button type="button" id="onlyBoard" class="submit" onclick="result();" style="background:linear-gradient(12.04deg, #DFDDF5 0%, #EBF4FC 100%); border-radius: 25px; width: 189px; box-shadow: 0px 4px 25px rgba(0,0,0,0.1); color:black;margin-top:15px; ">방명록만 보내기</button> -->
 							</div>
 							<!-- /bottom-wizard -->
@@ -232,7 +241,7 @@
 		<div class="modal-dialog modal-dialog-centered">
 			<div class="modal-content">
 				<div class="modal-header">
-					<h4 class="modal-title" id="termsLabel" style="font-size: 18px;font-weight: 900;">모딩 서비스 內 개인정보 활용 동의에 관한 문구</h4>
+					<h4 class="modal-title" id="termsLabel" style="font-size: 15px;font-weight: 900;">모딩 서비스 內 개인정보 활용 동의에 관한 문구</h4>
 					<button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
 				</div>
 				<div class="modal-body" style="font-size: 11px;">
@@ -384,7 +393,15 @@
 	
 	};
 	
-	
+	$("#backward").click(function(){
+		if(document.getElementsByClassName('step wizard-step current')[0].innerText.indexOf('#1') != "-1"){
+			var form = {
+					bride : document.getElementById("brideNm").value,
+                    groom : document.getElementById("groomNm").value
+        	  }
+    		pageHtmlGet("/goMain", form);
+		}		
+	});
 	
 	$("#name").change(function(){
 		if(document.getElementById("name").value == "" || document.getElementById("name").value == null){
@@ -399,13 +416,13 @@
 	
 	// 핸드폰 번호 유효성검사 정규식
 	$("#phone").change(function(){
-		var exp = /^(01[016789]{1}|02|0[3-9]{1}[0-9]{1})-?[0-9]{3,4}-?[0-9]{4}$/;
+		var exp = /(01[016789])-([0-9]{3,4})-([0-9]{4})$/; 
 		var EXP_BLANK = /^\s+|\s+$/g;		
 		var error = document.getElementById("errorPhone");
 		var phoneNum = document.getElementById("phone").value;
 		var isExpTest = true;
 		
-		var regExp =/(01[016789])-([1-9]{1}[0-9]{2,3})-([0-9]{4})$/; 
+		var regExp =/(01[016789])-\d{3,4}-\d{4}$/; 
 		var myArray; 
 		if(regExp.test(phoneNum)){ 
 			error.style.display = "none"; 
@@ -567,9 +584,8 @@
     }
 	/* 신랑 신부 사진 선택 효과 */
 	
- 	function result(){
- 		
- 		
+	function contentVal(){
+
  		// 방명록 유효성 검사 추가
 	    if(document.getElementsByClassName('step wizard-step current')[0].innerText.indexOf('#5 ') != "-1"){ 
 	    	if(document.getElementById("content").value == "" || document.getElementById("content").value == null){
@@ -577,8 +593,14 @@
 				event.stopImmediatePropagation();	
 			}else{
 				document.getElementById("errorContent").style.display = "none";
+				result()
 			}
 		}
+
+	}
+	
+ 	function result(){
+ 	 	
 
     	 var form = {
 	                 name : document.getElementById("name").value,
@@ -630,7 +652,7 @@
 	                success: function (data) {
 
 		            	Kakao.Auth.authorize({
-		  				  redirectUri : 'http://localhost:8080/result',
+		  				  redirectUri : 'http://moding.io/result',
 		  				  state : data.kakaoParam
 		  				  });
 		  				  
@@ -683,7 +705,6 @@
 	<script src="https://developers.kakao.com/sdk/js/kakao.js"></script>
 	<style>
 	.btn {
-		border: 1px solid;
 		float: left;
         display: flex;
         align-items: center;

@@ -67,18 +67,18 @@
 <style>
 #indexLogo{
 	animation-delay : 1s;
-	animation-duration : 5s;
+	animation-duration : 3s;
 	animation-name : fadeOut;
 	animation-iteration-count: infinite;
 }
 
 @keyframes fadeOut {
 	from {
-	transform : scale(1.0);
+	transform : scale(0.1);
 	}
 	
 	to {
-	transform : scale(0.1);
+	transform : scale(1.0);
 	}
 }
 </style>

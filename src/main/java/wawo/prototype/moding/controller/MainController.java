@@ -76,11 +76,18 @@ public class MainController {
 		
 		Map<String, Object> weddingInfo = mainService.getWeddingInfo(param);   	
 		List<Map<String, Object>> slidePic = mainService.getSlidePic(String.valueOf(weddingInfo.get("weddingId")));
-	   	String kakaoURL = "'http://moding.io/index?bride=" + param.get("bride") + "&groom=" + param.get("groom") + "'";
+		String kakaoImgURL = mainService.getKakaoImgNm(String.valueOf(weddingInfo.get("weddingId")));
 		
+	   	String kakaoURL = "'http://moding.io/index?bride=" + param.get("bride") + "&groom=" + param.get("groom") + "'";
+	   	String kakaoMes = "'모딩을 통해 "+param.get("bride") + "♥ " +  param.get("groom") + "의 결혼식을 축하해주세요!'";
+	   	
+	   	
 	   	model.addAttribute("weddingInfo", weddingInfo);
 	   	model.addAttribute("kakaoURL", kakaoURL);
+	   	model.addAttribute("kakaoMes", kakaoMes);
+	   	model.addAttribute("kakaoImgURL", "'http://moding.io/img/"+ kakaoImgURL + "'");
 	   	model.addAttribute("slidePic", slidePic);
+	   	model.addAttribute("firstSlidePiv", slidePic.get(slidePic.size()-1));
 	   	
 		System.out.println(param);
 		return "main";
@@ -127,6 +134,16 @@ public class MainController {
 	@RequestMapping(value = "/submit")
     @ResponseBody
 	public Map<String,Object> submit(@RequestParam Map<String, Object> param) throws Exception {
+		
+		if(param.get("selectGroom") == "Y") {
+			param.put("hostType", "M");
+		}else {
+			param.put("hostType", "W");
+		}
+		
+		String hostId = mainService.getHostId(param);
+		
+		param.put("hostId", hostId);
 		
 	   	 Map<String,Object> resultMap=new HashMap<String,Object>();
          int a = mainService.insertGuestInfo(param);
@@ -192,12 +209,17 @@ public class MainController {
 		String kakaoParam = (String) param.get("state");
 		int idx = kakaoParam.indexOf("/");
 		String weddingId = kakaoParam.substring(idx + 1);
+		String kakaoPayImgURL = mainService.getKakaoPayImgNm(weddingId);
+		String kakaoInviURL = mainService.getKakaoInviURL(weddingId);
 		
 		List<Map<String, Object>> slidePic = mainService.getSlidePic(weddingId);
 	   	
 	   	model.addAttribute("slidePic", slidePic);
 	   	model.addAttribute("accessCode", "'" + param.get("code")+ "'");
 	   	model.addAttribute("accountInfo",kakaoParam.substring(0, idx) + "'");
+	   	model.addAttribute("kakaoPayImgURL", "'http://moding.io/img/"+ kakaoPayImgURL + "'");
+	   	model.addAttribute("kakaoInviURL", kakaoInviURL);
+	   	
 	   	
 	   	return "result";
 	}

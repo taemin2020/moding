@@ -7,10 +7,11 @@
 <head>
 
 <meta charset="utf-8">
-<meta name="viewport"
-	content="width=device-width, initial-scale=1, shrink-to-fit=no">
+<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 <meta name="description" content="">
 <meta name="author" content="">
+<meta property="og:image" content="http://moding.io/img/${firstSlidePiv.attachNm}" />
+
 
 <title>moding</title>
 
@@ -47,7 +48,7 @@
 	<div id="wrapper">
 		<div style="margin-left: 86%;">
 			<a id="kakao-link-btn" onclick="sendLink();">
-			<img src="img/link.jpg" style="width: 25px; margin-left: 20%; margin-top: 4px;">
+			<img src="img/link.jpg" style="width: 50px; ">
 			</a>
 		</div>
 		<section class="content-section" id="portfolio"	style="padding: 0rem 0rem;">
@@ -61,8 +62,8 @@
 			</div>
 		</section>
 		
-		<div style="padding: 16px 0px 10px; text-align: center; font-size: 12px; font-family: NanumGothic; color: #53565D;">
-		모딩을 통해서 두 사람을 축하 해주세요.
+		<div style="padding: 16px 0px 10px; text-align: center; font-size: 12px; font-family: revert; color: #53565D;">
+			모딩을 통해서 두 사람을 축하 해주세요.
 		</div>
 	
 	
@@ -77,13 +78,13 @@
 				</ol>
 				<!-- /.carousel-indicators -->
 	
-				<div class="carousel-inner" style="border-radius: 6px;">
-				<div class="carousel-item active">
-						<img class="d-block img-fluid"	src="img/slide4.jpg" alt="">
+				<div class="carousel-inner" style="border-radius: 6px; height:435px;">
+				<div class="carousel-item active" style="height:auto; width:100%;">
+						<img class="d-block img-fluid"	src="img/${firstSlidePiv.attachNm}" alt="">
 						<div class="carousel-caption d-none d-md-block"></div>
 				</div>
 				<c:forEach items="${slidePic}" var="slidePic">
-					<div class="carousel-item">
+					<div class="carousel-item" style="height:auto; width:100%;">
 						<img class="d-block img-fluid"	src="img/<c:out value="${slidePic.attachNm}"/>" alt="">
 						<div class="carousel-caption d-none d-md-block"></div>
 					</div>
@@ -105,16 +106,16 @@
 			<!-- /.carousel -->
 		</div>
 		
-		<div style="text-align: center; padding: 23px 0px 3px 0px; color: rgba(83, 86, 93, 1); font-family: Playfair Display;">
+		<div style="text-align: center; padding: 23px 0px 3px 0px; color: rgba(83, 86, 93, 1); font-family: revert;font-weight: 800;">
 		${weddingInfo.location }
 		</div>
-		<div style="text-align: center; color: rgba(83, 86, 93, 1); font-family: Playfair Display;">
+		<div style="text-align: center; color: rgba(83, 86, 93, 1); font-family: Playfair Display; padding-bottom: 100px;">
 		${weddingInfo.weddingDtm }
 		</div>
 	</div>
-	<footer class="footer" style="margin: auto; width: 260px; padding:2rem;">
-		<a onclick="goDetail();" class="btn btn-xl btn-light mr-4"	style="font-family: NanumGothic;padding: 5px;width: 100%;box-shadow:  0px 4px 25px rgba(0, 0, 0, 0.1);border-radius: 25px;font-weight: normal;">축하하러 가기</a>
-	</footer>
+	<div id="bottom-wizard" style="padding-left:90px;">
+		<a onclick="goDetail();" class="btn btn-xl btn-light mr-4"	style="font-family: NanumGothic;padding: 5px;width: 60%;box-shadow:  0px 4px 25px rgba(0, 0, 0, 0.1);border-radius: 25px;font-weight: normal; position: fixed; bottom:30px;z-index: 1;">축하하러 가기</a>
+	</div>
 
 	<!-- Bootstrap core JavaScript -->
 	<script src="vendor/jquery/jquery.min.js"></script>
@@ -135,10 +136,10 @@
 	    Kakao.Link.sendDefault({
 	      objectType: 'feed',
 	      content: {
-	        title: 'Moding',
-	        description: '모딩을 결혼식에 참석하지 못한 지인들에게 공유하여 축하하는 마음을 나누세요.',
+	        title: 'moding',
+	        description: ${kakaoMes},
 	        imageUrl:
-	          'http://moding.io/img/Favicon.jpg',
+	        		${kakaoImgURL},
 	        link: {
 	          mobileWebUrl: ${kakaoURL},
 	          webUrl: ${kakaoURL},

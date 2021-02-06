@@ -35,7 +35,9 @@
   <select id="getWeddingInfo" parameterType="java.util.HashMap" resultType="java.util.HashMap">
 	  SELECT WEDDING_ID weddingId
 	       , LOCATION location
-		   , WEDDING_DTM weddingDtm
+		   , CONCAT(DATE_FORMAT(WEDDING_DTM, '%Y'),'년',DATE_FORMAT(WEDDING_DTM,'%m'),'월',DATE_FORMAT(WEDDING_DTM, '%d'),'일 ',
+			DATE_FORMAT(WEDDING_DTM, '%p'),' ',DATE_FORMAT(WEDDING_DTM, '%I'),'시 ',DATE_FORMAT(WEDDING_DTM, '%i'),'분'
+			) weddingDtm
 		   , PAY_YN payYn
 		   , CREATE_DTM createDtm
 		   , UPDATE_DTM updateDtm
@@ -184,6 +186,52 @@
 
   </select>
   
+  <select id="getKakaoImgNm" parameterType="java.util.HashMap" resultType="String" >
+	
+	SELECT  ATTACH_NM attachNm
+    FROM WEDDING_ATTACH_INFO
+    WHERE STATUS = 'Y'
+    AND TYPE = 'slide'
+    AND ATTACH_ID = (			
+		  	 SELECT MAX(ATTACH_ID)
+	         FROM WEDDING_ATTACH_INFO
+		     WHERE STATUS = 'Y'
+		     AND TYPE = 'slide'
+		     AND WEDDING_ID = #{weddingId}
+		     )
+    
+  </select>
+  
+  <select id="getKakaoPayImgNm" parameterType="java.util.HashMap" resultType="String" >
+	
+	SELECT  ATTACH_NM attachNm
+    FROM WEDDING_ATTACH_INFO
+    WHERE STATUS = 'Y'
+    AND TYPE = 'pay'
+    AND WEDDING_ID = #{weddingId}
+		     
+    
+  </select>
+  
+  <select id="getKakaoInviURL" parameterType="java.util.HashMap" resultType="String" >
+	
+	SELECT  INVITATION invitation
+    FROM WEDDING_INFO
+    WHERE STATUS = 'Y'
+    AND WEDDING_ID = #{weddingId}
+		     
+  </select>
+  
+  <select id="getHostId" parameterType="java.util.HashMap" resultType="String" >
+	
+	SELECT  HOST_ID hostId
+    FROM HOST_INFO
+    WHERE STATUS = 'Y'
+    AND WEDDING_ID = #{weddingId}
+    AND HOST_TYPE = #{hostType}
+		      
+  </select>
+  
   <select id="getSharePic" parameterType="java.util.HashMap" resultType="wawo.prototype.moding.dto.WeddingAttDTO" >
 			
   	 SELECT ATTACH_ID attachId
@@ -224,7 +272,7 @@
   	 
   	 )
   	 VALUES(
-	        '1'
+	        #{hostId}
 	      , #{name}
 	      , #{relation}
 	      , #{deRelation}
